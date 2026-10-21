@@ -328,11 +328,11 @@ export default function ImportQuestionsModal({ isOpen, onClose, quizId, onSucces
             type="button"
             disabled={validCount === 0 || saving}
             onClick={handleSave}
-            className="inline-flex items-center gap-2 px-6 py-2.5 text-sm font-bold rounded-xl bg-[#B84E2E] hover:bg-[#A34326] border border-[#CF603F] text-white shadow-lg shadow-[#B84E2E]/25 disabled:opacity-50 disabled:cursor-not-allowed transition cursor-pointer"
+            className="inline-flex items-center gap-2 px-6 py-2.5 text-sm font-bold rounded-xl bg-[#1D4A30] hover:bg-[#25603E] border border-[#3E855A] text-[#E8F5EE] shadow-md shadow-[#1D4A30]/30 disabled:opacity-50 disabled:cursor-not-allowed transition cursor-pointer"
           >
             {saving ? (
               <>
-                <Loader2 className="w-4 h-4 animate-spin" />
+                <Loader2 className="w-4 h-4 animate-spin text-[#7BD49F]" />
                 <span>{t.savingText}</span>
               </>
             ) : (

@@ -104,10 +104,10 @@ export default function HostAuthGate({ children }: HostAuthGateProps) {
           <button
             type="submit"
             disabled={!password.trim()}
-            className="w-full py-3.5 px-6 rounded-2xl bg-[#B84E2E] hover:bg-[#A34326] border border-[#CF603F] active:scale-98 text-white font-bold text-base shadow-lg shadow-[#B84E2E]/30 flex items-center justify-center gap-2 disabled:opacity-50 transition cursor-pointer"
+            className="w-full py-3.5 px-6 rounded-2xl bg-[#1D4A30] hover:bg-[#25603E] border border-[#3E855A] active:scale-98 text-white font-bold text-base shadow-md shadow-[#1D4A30]/30 flex items-center justify-center gap-2 disabled:opacity-50 transition cursor-pointer"
           >
             <span>{t.unlock}</span>
-            <ArrowRight className="w-5 h-5" />
+            <ArrowRight className="w-5 h-5 text-[#7BD49F]" />
           </button>
         </form>
 

@@ -43,16 +43,16 @@ export default function Navbar({
           </div>
         </Link>
 
-        {/* Navigation & Controls: Căn thẳng lề phải, chiều cao h-10 đồng bộ */}
+        {/* Navigation & Controls: Căn thẳng lề phải, chiều cao h-11 sm:h-12 đồng bộ */}
         <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
           <LanguageToggle />
 
           {showHostLink && (
             <Link
               href="/host/dashboard"
-              className="h-10 inline-flex items-center gap-2 px-3.5 sm:px-4 text-xs sm:text-sm font-bold rounded-xl bg-[#182F22] text-[#E5F2EA] hover:text-white border border-[#2B4E38] hover:bg-[#203D2D] transition shadow-sm whitespace-nowrap"
+              className="h-11 sm:h-12 inline-flex items-center gap-2 px-4 sm:px-5 text-xs sm:text-sm font-bold rounded-2xl bg-[#182F22] text-[#E5F2EA] hover:text-white border border-[#2B4E38] hover:bg-[#203D2D] transition shadow-sm whitespace-nowrap shrink-0"
             >
-              <LayoutDashboard className="w-4 h-4 text-[#D4704E] shrink-0" />
+              <LayoutDashboard className="w-5 h-5 text-[#D4704E] shrink-0" />
               <span>{t.hostDashboard}</span>
             </Link>
           )}
@@ -61,10 +61,10 @@ export default function Navbar({
             <button
               type="button"
               onClick={onLock}
-              className="h-10 inline-flex items-center gap-1.5 px-3.5 sm:px-4 text-xs sm:text-sm font-bold rounded-xl bg-[#2D1B18] text-[#F3C4BC] hover:text-white border border-[#52322B] hover:bg-[#3B221E] transition cursor-pointer whitespace-nowrap shadow-sm"
+              className="h-11 sm:h-12 inline-flex items-center gap-2 px-4 sm:px-5 text-xs sm:text-sm font-bold rounded-2xl bg-[#2D1B18] text-[#F3C4BC] hover:text-white border border-[#52322B] hover:bg-[#3B221E] transition cursor-pointer whitespace-nowrap shrink-0 shadow-sm"
               title={t.lock}
             >
-              <Lock className="w-4 h-4 text-[#D4704E] shrink-0" />
+              <Lock className="w-5 h-5 text-[#D4704E] shrink-0" />
               <span>{t.lock}</span>
             </button>
           )}

@@ -245,16 +245,16 @@ export default function HostDashboardPage() {
               </p>
             </div>
 
-            {/* Top Toolbar Actions - Căn chỉnh kích thước vừa vặn theo nội dung, không kéo dài */}
-            <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 shrink-0">
+            {/* Top Toolbar Actions - Rút ngắn độ dài nút, canh trái icon, thụt vào không sát khung, màu xanh lá đồng bộ */}
+            <div className="flex flex-wrap items-center justify-start lg:justify-end gap-3 shrink-0">
               {/* 1. Download Excel Sample */}
               <button
                 type="button"
                 onClick={downloadSampleExcelTemplate}
-                className="h-10 inline-flex items-center gap-2 px-3.5 sm:px-4 text-xs sm:text-sm font-bold text-[#B8E2C8] bg-[#182F22] hover:bg-[#203D2D] border border-[#2B4E38] rounded-xl transition cursor-pointer shadow-sm whitespace-nowrap"
+                className="h-11 inline-flex items-center justify-start gap-2.5 px-4 text-xs sm:text-sm font-bold text-[#B8E2C8] bg-[#182F22] hover:bg-[#203D2D] border border-[#2B4E38] rounded-2xl transition cursor-pointer shadow-sm whitespace-nowrap shrink-0"
                 title="Tải bảng tính mẫu để nhập câu hỏi"
               >
-                <Download className="w-4 h-4 text-[#7BD49F]" />
+                <Download className="w-4 h-4 text-[#7BD49F] shrink-0" />
                 <span>{t.downloadSampleBtn}</span>
               </button>
 
@@ -262,23 +262,23 @@ export default function HostDashboardPage() {
               <button
                 type="button"
                 onClick={() => setIsImportModalOpen(true)}
-                className="h-10 inline-flex items-center gap-2 px-3.5 sm:px-4 text-xs sm:text-sm font-bold text-[#B8E2C8] bg-[#182F22] hover:bg-[#203D2D] border border-[#2B4E38] rounded-xl transition cursor-pointer shadow-sm whitespace-nowrap"
+                className="h-11 inline-flex items-center justify-start gap-2.5 px-4 text-xs sm:text-sm font-bold text-[#B8E2C8] bg-[#182F22] hover:bg-[#203D2D] border border-[#2B4E38] rounded-2xl transition cursor-pointer shadow-sm whitespace-nowrap shrink-0"
                 title="Tải tệp Excel hoặc CSV từ máy tính để tự động tạo bộ đề"
               >
-                <FileSpreadsheet className="w-4 h-4 text-[#7BD49F]" />
+                <FileSpreadsheet className="w-4 h-4 text-[#7BD49F] shrink-0" />
                 <span>{t.importExcelBtn}</span>
               </button>
 
-              {/* 3. Create Quiz Button - Cam đất nung Behance */}
+              {/* 3. Create Quiz Button - Chuyển sang xanh lá đồng bộ */}
               <button
                 type="button"
                 onClick={() => {
                   setQuizToEdit(null);
                   setIsCreateModalOpen(true);
                 }}
-                className="h-10 inline-flex items-center gap-2 px-4 sm:px-5 rounded-xl bg-[#B84E2E] hover:bg-[#A34326] border border-[#CF603F] text-white font-black text-xs sm:text-sm shadow-lg shadow-[#B84E2E]/25 transition cursor-pointer whitespace-nowrap"
+                className="h-11 inline-flex items-center justify-start gap-2.5 px-4 sm:px-5 rounded-2xl bg-[#1D4A30] hover:bg-[#25603E] border border-[#3E855A] text-[#E8F5EE] font-bold text-xs sm:text-sm shadow-md shadow-[#1D4A30]/30 transition cursor-pointer whitespace-nowrap shrink-0"
               >
-                <Plus className="w-4 h-4" />
+                <Plus className="w-4 h-4 text-[#7BD49F] shrink-0" />
                 <span>{t.createQuizBtn}</span>
               </button>
             </div>
@@ -286,41 +286,44 @@ export default function HostDashboardPage() {
 
           {/* Search Bar & Folder Navigation */}
           <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3 bg-[#14261C]/90 p-3 sm:p-4 rounded-2xl border border-[#2B4B36] backdrop-blur-md shadow-xl">
-            {/* Search Input - Có khoảng đệm pl-12 không để chữ đè lên icon */}
+            {/* Search Input - Sử dụng inline paddingLeft 56px đảm bảo 100% không bị đè lên kính lúp */}
             <div className="relative flex-1 min-w-[240px]">
-              <Search className="w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-[#7F9E8B] pointer-events-none" />
+              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none z-10">
+                <Search className="w-5 h-5 text-[#7F9E8B]" />
+              </div>
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder={t.searchPlaceholder}
-                className="w-full pl-12 pr-10 py-2.5 rounded-xl bg-[#0D1811] border border-[#2B4B36] text-xs sm:text-sm text-[#FAF8F5] placeholder:text-[#688573] focus:border-[#B84E2E] focus:ring-1 focus:ring-[#B84E2E] outline-none transition"
+                style={{ paddingLeft: '56px', paddingRight: '40px' }}
+                className="w-full h-11 py-2.5 rounded-xl bg-[#0D1811] border border-[#2B4B36] text-xs sm:text-sm text-[#FAF8F5] placeholder:text-[#688573] focus:border-[#3E855A] focus:ring-1 focus:ring-[#3E855A] outline-none transition"
               />
               {searchQuery && (
                 <button
                   type="button"
                   onClick={() => setSearchQuery('')}
-                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[#7F9E8B] hover:text-[#FAF8F5] transition"
+                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[#7F9E8B] hover:text-[#FAF8F5] transition z-10"
                 >
                   <X className="w-4 h-4" />
                 </button>
               )}
             </div>
 
-            {/* Folders Filter & Management - Chuẩn hóa chiều cao h-10 đồng nhất */}
-            <div className="flex items-center gap-2 overflow-x-auto pb-1 md:pb-0 scrollbar-none">
+            {/* Folders Filter & Management - Nút gọn gàng, màu xanh lá đồng bộ, không bị giãn dài */}
+            <div className="flex items-center gap-2 overflow-x-auto pb-1 md:pb-0 scrollbar-none shrink-0">
               {/* All Folder Pill */}
               <button
                 type="button"
                 onClick={() => setSelectedFolder('ALL')}
-                className={`h-10 px-3.5 rounded-xl text-xs font-bold transition cursor-pointer flex items-center gap-2 shrink-0 ${
+                className={`h-11 px-4 rounded-xl text-xs sm:text-sm font-bold transition cursor-pointer flex items-center justify-start gap-2 shrink-0 whitespace-nowrap ${
                   selectedFolder === 'ALL'
-                    ? 'bg-[#B84E2E] text-white shadow-md shadow-[#B84E2E]/25 border border-[#CF603F]'
+                    ? 'bg-[#1D4A30] text-[#E8F5EE] border border-[#3E855A] shadow-md shadow-[#1D4A30]/30'
                     : 'bg-[#182F22] text-[#B8D1C2] hover:bg-[#203D2D] border border-[#2B4E38]'
                 }`}
               >
                 <span>📁 {t.allFolders}</span>
-                <span className="text-[10px] px-2 py-0.5 rounded-full bg-black/35 font-extrabold">
+                <span className="text-[11px] px-2 py-0.5 rounded-full bg-black/40 font-extrabold text-[#7BD49F]">
                   {quizzes.length}
                 </span>
               </button>
@@ -332,19 +335,19 @@ export default function HostDashboardPage() {
                 return (
                   <div
                     key={folder}
-                    className={`h-10 inline-flex items-center rounded-xl text-xs font-bold transition shrink-0 border ${
+                    className={`h-11 inline-flex items-center rounded-xl text-xs sm:text-sm font-bold transition shrink-0 border whitespace-nowrap ${
                       isSelected
-                        ? 'bg-[#B84E2E] text-white shadow-md shadow-[#B84E2E]/25 border-[#CF603F]'
+                        ? 'bg-[#1D4A30] text-[#E8F5EE] border-[#3E855A] shadow-md shadow-[#1D4A30]/30'
                         : 'bg-[#182F22] text-[#B8D1C2] hover:bg-[#203D2D] border-[#2B4E38]'
                     }`}
                   >
                     <button
                       type="button"
                       onClick={() => setSelectedFolder(folder)}
-                      className="px-3 h-full flex items-center gap-1.5 cursor-pointer"
+                      className="px-3.5 h-full flex items-center justify-start gap-1.5 cursor-pointer"
                     >
                       <span>📁 {folder}</span>
-                      <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-black/35 font-extrabold">
+                      <span className="text-[11px] px-2 py-0.5 rounded-full bg-black/40 font-extrabold text-[#7BD49F]">
                         {count}
                       </span>
                     </button>
@@ -364,10 +367,10 @@ export default function HostDashboardPage() {
               <button
                 type="button"
                 onClick={handleCreateFolder}
-                className="h-10 px-3.5 rounded-xl text-xs font-bold bg-[#182F22] hover:bg-[#203D2D] text-[#E0A896] border border-[#523A33] transition cursor-pointer flex items-center gap-1.5 whitespace-nowrap shrink-0 shadow-sm"
+                className="h-11 px-3.5 rounded-xl text-xs sm:text-sm font-bold bg-[#182F22] hover:bg-[#203D2D] text-[#A6D1B5] border border-[#2B4E38] transition cursor-pointer flex items-center justify-start gap-1.5 whitespace-nowrap shrink-0 shadow-sm"
                 title="Tạo thư mục mới để phân loại bộ đề"
               >
-                <FolderPlus className="w-4 h-4 text-[#D4704E]" />
+                <FolderPlus className="w-4 h-4 text-[#7BD49F]" />
                 <span>{t.createFolderBtn}</span>
               </button>
             </div>
@@ -375,8 +378,8 @@ export default function HostDashboardPage() {
 
           {/* Loading Spinner */}
           {loading && (
-            <div className="flex flex-col items-center justify-center py-24 text-[#D4704E]">
-              <Loader2 className="w-8 h-8 animate-spin mb-3 text-[#B84E2E]" />
+            <div className="flex flex-col items-center justify-center py-24 text-[#7BD49F]">
+              <Loader2 className="w-8 h-8 animate-spin mb-3 text-[#7BD49F]" />
               <span className="text-sm text-[#A9BAAE]">{t.loadingQuizzes}</span>
             </div>
           )}
@@ -384,7 +387,7 @@ export default function HostDashboardPage() {
           {/* Empty State */}
           {!loading && filteredQuizzes.length === 0 && (
             <div className="p-10 sm:p-14 rounded-3xl bg-[#14261C]/90 border border-[#2B4B36] text-center max-w-lg mx-auto space-y-4 shadow-xl backdrop-blur-md">
-              <div className="w-16 h-16 rounded-2xl bg-[#1B3526] border border-[#2D543D] text-[#D4704E] flex items-center justify-center mx-auto shadow-inner">
+              <div className="w-16 h-16 rounded-2xl bg-[#1B3526] border border-[#2D543D] text-[#7BD49F] flex items-center justify-center mx-auto shadow-inner">
                 <FolderOpen className="w-8 h-8" />
               </div>
               <div>
@@ -401,7 +404,7 @@ export default function HostDashboardPage() {
                 <div className="flex items-center justify-center gap-3 pt-3 flex-wrap">
                   <button
                     onClick={() => setIsImportModalOpen(true)}
-                    className="h-10 inline-flex items-center gap-2 px-4 rounded-xl bg-[#182F22] hover:bg-[#203D2D] text-[#B8E2C8] font-bold text-xs sm:text-sm border border-[#2B4E38] transition cursor-pointer"
+                    className="h-11 inline-flex items-center justify-start gap-2 px-4 rounded-xl bg-[#182F22] hover:bg-[#203D2D] text-[#B8E2C8] font-bold text-xs sm:text-sm border border-[#2B4E38] transition cursor-pointer"
                   >
                     <FileSpreadsheet className="w-4 h-4 text-[#7BD49F]" />
                     <span>{t.importExcelBtn}</span>
@@ -411,9 +414,9 @@ export default function HostDashboardPage() {
                       setQuizToEdit(null);
                       setIsCreateModalOpen(true);
                     }}
-                    className="h-10 inline-flex items-center gap-2 px-5 rounded-xl bg-[#B84E2E] hover:bg-[#A34326] border border-[#CF603F] text-white font-black text-xs sm:text-sm transition cursor-pointer shadow-lg shadow-[#B84E2E]/25"
+                    className="h-11 inline-flex items-center justify-start gap-2 px-5 rounded-xl bg-[#1D4A30] hover:bg-[#25603E] border border-[#3E855A] text-[#E8F5EE] font-bold text-xs sm:text-sm transition cursor-pointer shadow-md shadow-[#1D4A30]/30"
                   >
-                    <Plus className="w-4 h-4" />
+                    <Plus className="w-4 h-4 text-[#7BD49F]" />
                     <span>{t.createFirstQuiz}</span>
                   </button>
                 </div>
@@ -515,17 +518,17 @@ export default function HostDashboardPage() {
                         <span>{t.exportExcelBtn}</span>
                       </button>
 
-                      {/* Play Live Button - Cam đất nung Behance */}
+                      {/* Play Live Button - Xanh lá đồng bộ */}
                       <button
                         type="button"
                         onClick={() => handleStartGame(quiz.id)}
                         disabled={creatingSessionId === quiz.id}
-                        className="h-10 flex-1 inline-flex items-center justify-center gap-2 px-4 rounded-xl text-xs sm:text-sm font-black bg-[#B84E2E] hover:bg-[#A34326] border border-[#CF603F] text-white shadow-lg shadow-[#B84E2E]/25 disabled:opacity-50 transition cursor-pointer"
+                        className="h-11 flex-1 inline-flex items-center justify-center gap-2 px-4 rounded-xl text-xs sm:text-sm font-bold bg-[#1D4A30] hover:bg-[#25603E] border border-[#3E855A] text-[#E8F5EE] shadow-md shadow-[#1D4A30]/30 disabled:opacity-50 transition cursor-pointer"
                       >
                         {creatingSessionId === quiz.id ? (
-                          <Loader2 className="w-4 h-4 animate-spin" />
+                          <Loader2 className="w-4 h-4 animate-spin text-[#7BD49F]" />
                         ) : (
-                          <Play className="w-4 h-4 fill-current" />
+                          <Play className="w-4 h-4 fill-current text-[#7BD49F]" />
                         )}
                         <span>{t.playLiveBtn}</span>
                       </button>
