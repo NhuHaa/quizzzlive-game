@@ -245,13 +245,13 @@ export default function HostDashboardPage() {
               </p>
             </div>
 
-            {/* Top Toolbar Actions - Rút ngắn độ dài nút, canh trái icon, thụt vào không sát khung, màu xanh lá đồng bộ */}
-            <div className="flex flex-wrap items-center justify-start lg:justify-end gap-3 shrink-0">
+            {/* Top Toolbar Actions - Chiều rộng chuẩn 360px, canh lề trái thẳng hàng với nút Khóa ở Header, mép phải bằng khoảng cách Logo bên trái */}
+            <div className="flex flex-col gap-2.5 w-full sm:w-[360px] shrink-0 ml-auto">
               {/* 1. Download Excel Sample */}
               <button
                 type="button"
                 onClick={downloadSampleExcelTemplate}
-                className="h-11 inline-flex items-center justify-start gap-2.5 px-4 text-xs sm:text-sm font-bold text-[#B8E2C8] bg-[#182F22] hover:bg-[#203D2D] border border-[#2B4E38] rounded-2xl transition cursor-pointer shadow-sm whitespace-nowrap shrink-0"
+                className="h-10 sm:h-10.5 w-full inline-flex items-center justify-start gap-2.5 px-4 text-xs sm:text-sm font-bold text-[#B8E2C8] bg-[#182F22] hover:bg-[#203D2D] border border-[#2B4E38] rounded-xl sm:rounded-2xl transition cursor-pointer shadow-sm whitespace-nowrap shrink-0"
                 title="Tải bảng tính mẫu để nhập câu hỏi"
               >
                 <Download className="w-4 h-4 text-[#7BD49F] shrink-0" />
@@ -262,7 +262,7 @@ export default function HostDashboardPage() {
               <button
                 type="button"
                 onClick={() => setIsImportModalOpen(true)}
-                className="h-11 inline-flex items-center justify-start gap-2.5 px-4 text-xs sm:text-sm font-bold text-[#B8E2C8] bg-[#182F22] hover:bg-[#203D2D] border border-[#2B4E38] rounded-2xl transition cursor-pointer shadow-sm whitespace-nowrap shrink-0"
+                className="h-10 sm:h-10.5 w-full inline-flex items-center justify-start gap-2.5 px-4 text-xs sm:text-sm font-bold text-[#B8E2C8] bg-[#182F22] hover:bg-[#203D2D] border border-[#2B4E38] rounded-xl sm:rounded-2xl transition cursor-pointer shadow-sm whitespace-nowrap shrink-0"
                 title="Tải tệp Excel hoặc CSV từ máy tính để tự động tạo bộ đề"
               >
                 <FileSpreadsheet className="w-4 h-4 text-[#7BD49F] shrink-0" />
@@ -276,7 +276,7 @@ export default function HostDashboardPage() {
                   setQuizToEdit(null);
                   setIsCreateModalOpen(true);
                 }}
-                className="h-11 inline-flex items-center justify-start gap-2.5 px-4 sm:px-5 rounded-2xl bg-[#1D4A30] hover:bg-[#25603E] border border-[#3E855A] text-[#E8F5EE] font-bold text-xs sm:text-sm shadow-md shadow-[#1D4A30]/30 transition cursor-pointer whitespace-nowrap shrink-0"
+                className="h-10 sm:h-10.5 w-full inline-flex items-center justify-start gap-2.5 px-4 rounded-xl sm:rounded-2xl bg-[#1D4A30] hover:bg-[#25603E] border border-[#3E855A] text-[#E8F5EE] font-bold text-xs sm:text-sm shadow-md shadow-[#1D4A30]/30 transition cursor-pointer whitespace-nowrap shrink-0"
               >
                 <Plus className="w-4 h-4 text-[#7BD49F] shrink-0" />
                 <span>{t.createQuizBtn}</span>
@@ -404,7 +404,7 @@ export default function HostDashboardPage() {
                 <div className="flex items-center justify-center gap-3 pt-3 flex-wrap">
                   <button
                     onClick={() => setIsImportModalOpen(true)}
-                    className="h-11 inline-flex items-center justify-start gap-2 px-4 rounded-xl bg-[#182F22] hover:bg-[#203D2D] text-[#B8E2C8] font-bold text-xs sm:text-sm border border-[#2B4E38] transition cursor-pointer"
+                    className="h-10 sm:h-10.5 w-auto inline-flex items-center justify-center gap-2 px-4 rounded-xl sm:rounded-2xl bg-[#182F22] hover:bg-[#203D2D] text-[#B8E2C8] font-bold text-xs sm:text-sm border border-[#2B4E38] transition cursor-pointer shrink-0"
                   >
                     <FileSpreadsheet className="w-4 h-4 text-[#7BD49F]" />
                     <span>{t.importExcelBtn}</span>
@@ -414,7 +414,7 @@ export default function HostDashboardPage() {
                       setQuizToEdit(null);
                       setIsCreateModalOpen(true);
                     }}
-                    className="h-11 inline-flex items-center justify-start gap-2 px-5 rounded-xl bg-[#1D4A30] hover:bg-[#25603E] border border-[#3E855A] text-[#E8F5EE] font-bold text-xs sm:text-sm transition cursor-pointer shadow-md shadow-[#1D4A30]/30"
+                    className="h-10 sm:h-10.5 w-auto inline-flex items-center justify-center gap-2 px-5 rounded-xl sm:rounded-2xl bg-[#1D4A30] hover:bg-[#25603E] border border-[#3E855A] text-[#E8F5EE] font-bold text-xs sm:text-sm transition cursor-pointer shadow-md shadow-[#1D4A30]/30 shrink-0"
                   >
                     <Plus className="w-4 h-4 text-[#7BD49F]" />
                     <span>{t.createFirstQuiz}</span>

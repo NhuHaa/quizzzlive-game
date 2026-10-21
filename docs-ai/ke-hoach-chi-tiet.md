@@ -174,6 +174,8 @@ flowchart TD
 | Lớp phủ hạt nhám Grain | ✅ Hoàn thành | Paper texture sần sùi nghệ thuật |
 | Logo chú vịt vàng suy nghĩ | ✅ Hoàn thành | SVG vector sắc nét, nhún nhảy khi hover |
 | Căn giữa Header & Sửa Slider âm lượng | ✅ Hoàn thành | Header thoáng đãng, con trượt to rõ |
-| Khởi tạo Supabase Database | ⏳ Bước tiếp theo | Chạy schema.sql trên Supabase |
-| Đẩy mã nguồn lên GitHub | ⏳ Bước tiếp theo | git commit & git push |
-| Deploy lên Vercel | ⏳ Bước tiếp theo | Cấu hình biến môi trường & xuất bản |
+| Khởi tạo Supabase Database | ✅ Hoàn thành | Đã chạy schema.sql, seed.sql và cấu hình 3 API Keys |
+| Tách mã nguồn độc lập & Đẩy lên GitHub | ✅ Hoàn thành | Kho chính chủ: https://github.com/NhuHaa/quizzzlive-game |
+| Triển khai Deploy lên Vercel | ✅ Hoàn thành | Web chính thức: https://quizzzlive-game-35dn.vercel.app |
+| Tinh chỉnh Giao diện Quản Trị & Header | ✅ Hoàn thành | Nút xanh lá đồng bộ, căn lề chuẩn, sửa kính lúp tìm kiếm |
+| Sẵn sàng cho trận đấu thực tế | 🚀 Sẵn sàng | Mở Host trên máy tính/TV và quét QR qua điện thoại 4G/Wifi |

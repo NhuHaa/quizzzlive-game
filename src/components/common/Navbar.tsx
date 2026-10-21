@@ -29,9 +29,9 @@ export default function Navbar({
 
   return (
     <header className={`w-full border-b backdrop-blur-md sticky top-0 z-40 transition-colors ${className}`}>
-      <div className={`${containerMaxWidth} mx-auto px-4 sm:px-8 h-16 sm:h-20 flex items-center justify-between gap-4`}>
+      <div className={`${containerMaxWidth} w-full mx-auto px-4 sm:px-8 h-16 sm:h-18 flex items-center justify-between gap-3 sm:gap-4`}>
         {/* Logo: Chú vịt vàng đang suy nghĩ - Canh thẳng lề trái */}
-        <Link href="/" className="flex items-center gap-3 group shrink-0">
+        <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group shrink-0">
           <ThinkingDuckLogo size="md" />
           <div className="flex items-center">
             <span className="text-xl sm:text-2xl font-black tracking-tight bg-gradient-to-r from-white via-[#EAD1C5] to-[#D4704E] bg-clip-text text-transparent">
@@ -43,31 +43,31 @@ export default function Navbar({
           </div>
         </Link>
 
-        {/* Navigation & Controls: Căn thẳng lề phải, chiều cao h-11 sm:h-12 đồng bộ */}
-        <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
-          <LanguageToggle />
-
-          {showHostLink && (
-            <Link
-              href="/host/dashboard"
-              className="h-11 sm:h-12 inline-flex items-center gap-2 px-4 sm:px-5 text-xs sm:text-sm font-bold rounded-2xl bg-[#182F22] text-[#E5F2EA] hover:text-white border border-[#2B4E38] hover:bg-[#203D2D] transition shadow-sm whitespace-nowrap shrink-0"
-            >
-              <LayoutDashboard className="w-5 h-5 text-[#D4704E] shrink-0" />
-              <span>{t.hostDashboard}</span>
-            </Link>
-          )}
-
+        {/* Navigation & Controls: Canh sát lề phải, nút Khóa nằm ở mép trái cụm nút gióng thẳng hàng với 3 nút bên dưới */}
+        <div className="ml-auto flex items-center justify-end gap-2 sm:gap-2.5 shrink-0">
           {showLockButton && onLock && (
             <button
               type="button"
               onClick={onLock}
-              className="h-11 sm:h-12 inline-flex items-center gap-2 px-4 sm:px-5 text-xs sm:text-sm font-bold rounded-2xl bg-[#2D1B18] text-[#F3C4BC] hover:text-white border border-[#52322B] hover:bg-[#3B221E] transition cursor-pointer whitespace-nowrap shrink-0 shadow-sm"
+              className="h-10 sm:h-10.5 w-auto inline-flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-4 text-xs sm:text-sm font-bold rounded-xl sm:rounded-2xl bg-[#2D1B18] text-[#F3C4BC] hover:text-white border border-[#52322B] hover:bg-[#3B221E] transition cursor-pointer whitespace-nowrap shrink-0 shadow-sm"
               title={t.lock}
             >
-              <Lock className="w-5 h-5 text-[#D4704E] shrink-0" />
+              <Lock className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-[#D4704E] shrink-0" />
               <span>{t.lock}</span>
             </button>
           )}
+
+          {showHostLink && (
+            <Link
+              href="/host/dashboard"
+              className="h-10 sm:h-10.5 w-auto inline-flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-4 text-xs sm:text-sm font-bold rounded-xl sm:rounded-2xl bg-[#182F22] text-[#E5F2EA] hover:text-white border border-[#2B4E38] hover:bg-[#203D2D] transition shadow-sm whitespace-nowrap shrink-0"
+            >
+              <LayoutDashboard className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-[#D4704E] shrink-0" />
+              <span>{t.hostDashboard}</span>
+            </Link>
+          )}
+
+          <LanguageToggle />
 
           {showAudioControl && <AudioControl />}
         </div>

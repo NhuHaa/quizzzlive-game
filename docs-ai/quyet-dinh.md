@@ -40,3 +40,24 @@ Tài liệu này ghi lại các lựa chọn kiến trúc quan trọng đã th�
 ### 9. Hiển thị đầy đủ Câu hỏi & Nội dung 4 Đáp án trên màn hình Người chơi (`/play`)
 * **Quyết định:** Thêm khung câu hỏi + đồng hồ đếm ngược trên đầu màn hình và hiển thị toàn bộ nội dung chữ của 4 đáp án (thay vì chỉ hiện 4 khối màu).
 * **Lý do:** Giúp người chơi có thể tự đọc đề và suy ngẫm trực tiếp trên thiết bị của mình mà không cần phải nhìn lên màn hình Host.
+
+### 10. Tách mã nguồn độc lập & Liên kết GitHub cá nhân chính chủ
+* **Quyết định:** Tách toàn bộ dự án vào thư mục `quizzz-live-project` và đẩy lên kho GitHub cá nhân chính chủ **`NhuHaa/quizzzlive-game`**.
+* **Lý do:** Đảm bảo quyền kiểm soát mã nguồn 100%, độc lập hoàn toàn với các kho tham khảo cũ.
+
+### 11. Triển khai toàn cầu qua Vercel + Supabase Cloud
+* **Quyết định:** Kết nối CI/CD tự động giữa GitHub và Vercel, sử dụng chuẩn chìa khóa API mới của Supabase (`sb_publishable_...` và `sb_secret_...`).
+* **Lý do:** Cho phép người chơi thi đấu qua mạng 4G/Wifi từ khắp mọi nơi với tốc độ tải trang cực nhanh và độ trễ thấp.
+
+### 12. Đại tu màu sắc giao diện Quản Trị (`/host/dashboard`) sang Xanh Lá đồng bộ
+* **Quyết định:** Chuyển toàn bộ các nút bấm trước đó màu cam đất (`+ Tạo Bộ Đề Mới`, `Tất Cả 0`, `Phát Trực Tiếp`, nút Mở khóa...) sang màu **Xanh Lá Rừng Rậm / Emerald Rêu** (`#1D4A30` viền `#3E855A` chữ `#E8F5EE`).
+* **Lý do:** Tạo cảm giác thanh thoát, hài hòa và sang trọng theo đúng nhận diện thương hiệu mà người dùng mong muốn, không còn cảm giác lệch tông hay chói mắt.
+
+### 13. Quy chuẩn kích thước nút & Sửa lỗi hiển thị thanh tìm kiếm
+* **Quyết định:**
+  - Đồng bộ khung Header `Navbar` và phần nội dung chính về chung `max-w-7xl mx-auto px-4 sm:px-8` để Logo thẳng lề trái và các nút điều khiển thẳng lề phải.
+  - Chuẩn hóa chiều cao nhỏ gọn `h-10 sm:h-10.5` (40px - 42px) và bo góc `rounded-xl sm:rounded-2xl` cho cả 3 nút Header: `VI / EN`, `Host Quản Lý`, `Khóa`, cùng nút `AudioControl`.
+  - Tách triệt để `button` ra khỏi thuộc tính `width: 100%` trong `globals.css` để các nút không bị dãn dài tràn mép màn hình ở mức phóng to 100%.
+  - Rút ngắn độ dài nút Toolbar, canh trái icon, thu gọn kích thước đều nhau bằng nút Host Quản Lý và neo sát lề phải `ml-auto`.
+  - Áp dụng `style={{ paddingLeft: '56px' }}` cho ô input tìm kiếm để cố định khoảng cách an toàn, chống triệt để lỗi chữ đè lên kính lúp.
+* **Lý do:** Khắc phục triệt để hiện tượng vỡ nút, dãn nút tràn thanh điều hướng hoặc bị ẩn nút Khóa khi xem ở tỷ lệ 100%, đem lại bố cục cân xứng, tinh tế và chuyên nghiệp.

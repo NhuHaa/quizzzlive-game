@@ -26,22 +26,22 @@ export default function AudioControl() {
   const currentPercent = isMuted ? 0 : Math.round(volume * 100);
 
   return (
-    <div ref={containerRef} className="relative flex items-center gap-2 sm:gap-2.5">
+    <div ref={containerRef} className="relative flex items-center gap-1.5 sm:gap-2 shrink-0">
       {/* Nút bật/tắt tiếng nhanh */}
       <button
         type="button"
         onClick={toggleMute}
         title={isMuted ? 'Bật âm thanh' : 'Tắt tiếng'}
-        className={`p-2.5 sm:p-2.5 rounded-2xl border transition cursor-pointer flex items-center justify-center ${
+        className={`h-10 sm:h-10.5 w-10 sm:w-10.5 rounded-xl sm:rounded-2xl border transition cursor-pointer flex items-center justify-center shrink-0 ${
           isMuted
             ? 'bg-rose-500/15 border-rose-500/40 text-rose-400 hover:bg-rose-500/25'
             : 'bg-[#162a1f]/90 hover:bg-[#1e382b] border-[#2b4c37] text-[#d4e7db] hover:text-white shadow-sm'
         }`}
       >
         {isMuted || volume === 0 ? (
-          <VolumeX className="w-5 h-5 text-rose-400" />
+          <VolumeX className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-rose-400" />
         ) : (
-          <Volume2 className="w-5 h-5 text-[#D4704E]" />
+          <Volume2 className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-[#D4704E]" />
         )}
       </button>
 
@@ -50,13 +50,13 @@ export default function AudioControl() {
         type="button"
         onClick={() => setShowSlider(!showSlider)}
         title="Điều chỉnh âm lượng"
-        className={`p-2.5 sm:p-2.5 rounded-2xl border transition cursor-pointer flex items-center justify-center ${
+        className={`h-10 sm:h-10.5 w-10 sm:w-10.5 rounded-xl sm:rounded-2xl border transition cursor-pointer flex items-center justify-center shrink-0 ${
           showSlider
             ? 'bg-[#B84E2E]/25 border-[#B84E2E] text-[#F5DACD] ring-2 ring-[#B84E2E]/20'
             : 'bg-[#162a1f]/90 hover:bg-[#1e382b] border-[#2b4c37] text-[#d4e7db] hover:text-white shadow-sm'
         }`}
       >
-        <Sliders className="w-5 h-5" />
+        <Sliders className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
       </button>
 
       {/* Bảng điều khiển âm lượng nổi */}

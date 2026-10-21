@@ -1,60 +1,63 @@
 # 📝 Ghi Chú Tiến Độ Dự Án QuizLive (Kahoot Self-Host)
 
-*Cập nhật lần cuối: Buổi tối ngày 20/10/2026*
+*Cập nhật lần cuối: Ngày 21/10/2026*
 
 ---
 
 ## 📌 Công Việc Hiện Tại
-- **Mục tiêu:** Tùy biến nhận diện thương hiệu (Font Roboto, Logo vịt vàng suy nghĩ, phong cách Behance xanh rêu - cam đất nung - hạt grain) và chuẩn bị triển khai lên GitHub & Vercel để chơi qua Wifi/4G.
-- **Trạng thái hiện tại:** Giao diện đã được người dùng review và duyệt 100%. Đang chuẩn bị chuyển sang cấu hình Supabase Cloud và Deploy Vercel.
+- **Mục tiêu:** Đưa ứng dụng QuizLive hoàn chỉnh lên đám mây (Supabase + Vercel) để chơi qua Wifi/4G, đồng thời tinh chỉnh toàn diện giao diện Quản Trị theo phong cách Behance Poster Art xanh rêu rừng rậm.
+- **Trạng thái hiện tại:** Website đã chính thức hoạt động trên Internet tại `https://quizzzlive-game-35dn.vercel.app`. Toàn bộ giao diện trang chủ, trang quản trị, màn hình nhập mã PIN và các nút điều khiển đã được người dùng review và duyệt hoàn thiện 100%!
 
 ---
 
-## ✅ Việc Đã Hoàn Thành Hôm Nay (20/10/2026)
+## ✅ Việc Đã Hoàn Thành Hôm Nay (21/10/2026)
 
-### 1. Tùy biến Font chữ & Khắc phục lỗi hiển thị
-- [x] Chuyển đổi font toàn bộ hệ thống sang font không chân **`Roboto`** từ Google Fonts (weights `300, 400, 500, 700, 900`, hỗ trợ tiếng Việt đầy đủ) tại `src/app/layout.tsx`.
-- [x] Sửa triệt để lỗi font fallback sang Times New Roman (loại bỏ cyclic reference biến `--font-sans` trong `src/app/globals.css`).
+### 1. Thiết lập Cơ sở dữ liệu Supabase Cloud
+- [x] Tạo dự án Supabase chính chủ `quizzzlive-game` (Region Tokyo/Singapore) tại tổ chức `NhuHaa's Org`.
+- [x] Chạy thành công tập lệnh [supabase/schema.sql](file:///Users/linhduong/.gemini/antigravity-ide/scratch/kahoot-rep/quizzz-live-project/supabase/schema.sql) tạo toàn bộ bảng dữ liệu (`quizzes`, `questions`, `game_sessions`, `players`, `answers`, hàm RPC chấm điểm an toàn `submit_player_answer`).
+- [x] Chạy tập lệnh câu hỏi mẫu [supabase/seed.sql](file:///Users/linhduong/.gemini/antigravity-ide/scratch/kahoot-rep/quizzz-live-project/supabase/seed.sql).
+- [x] Thiết lập cấu hình bảo mật 3 khóa API Supabase vào file [.env.local](file:///Users/linhduong/.gemini/antigravity-ide/scratch/kahoot-rep/quizzz-live-project/.env.local):
+  - `NEXT_PUBLIC_SUPABASE_URL`: `https://bihfwfrjlnjzvaobxwso.supabase.co`
+  - `NEXT_PUBLIC_SUPABASE_ANON_KEY`: `sb_publishable_Ls_Mu2Uzwl3rVeO6YxUaag_Lc2JPV3j`
+  - `SUPABASE_SERVICE_ROLE_KEY`: `[Đã lưu an toàn trong .env.local và Vercel Environment Variables]`
 
-### 2. Thiết kế giao diện theo phong cách Poster Nghệ thuật Behance (Stratman Law Firm)
-- [x] Đổi background trang chủ sang dải màu **Xanh rêu rừng rậm trầm sâu** (`#112017` $\rightarrow$ `#1A3324` $\rightarrow$ `#0D1811`).
-- [x] Áp dụng màu **Trắng ngọc trai** cho tiêu đề chính và dải chuyển sắc hoàng hôn (`#FAF8F5` $\rightarrow$ `#EAD1C5` $\rightarrow$ `#C85D3B`).
-- [x] Thiết kế nút CTA "Vào Chơi Ngay" bằng **màu cam đất nung (Burnt Earth / Terracotta `#B84E2E`)**, ít tươi, mộc mạc và sang trọng.
-- [x] Tích hợp lớp phủ **hạt nhám Grain Texture (`.grain-texture`)** với chế độ `mix-blend-overlay` tạo cảm giác bề mặt giấy in mỹ thuật cao cấp.
+### 2. Tổ chức mã nguồn độc lập & Đẩy lên GitHub
+- [x] Sao chép toàn bộ mã nguồn hoàn chỉnh (Next.js 16, React 19, TypeScript, Tailwind CSS, Web Audio API, Canvas Confetti) vào thư mục [quizzz-live-project](file:///Users/linhduong/.gemini/antigravity-ide/scratch/kahoot-rep/quizzz-live-project) để quản lý độc lập.
+- [x] Khởi tạo kho Git mới và kết nối với tài khoản GitHub cá nhân của người dùng: **[https://github.com/NhuHaa/quizzzlive-game](https://github.com/NhuHaa/quizzzlive-game)**.
+- [x] Đẩy toàn bộ mã nguồn lên nhánh `main` thành công 100%.
 
-### 3. Thiết kế linh vật Logo & Hoàn thiện cụm điều khiển
-- [x] Tạo component vector SVG độc quyền **[ThinkingDuckLogo.tsx](file:///Users/linhduong/.gemini/antigravity-ide/scratch/kahoot-rep/src/components/common/ThinkingDuckLogo.tsx)**: Chú vịt vàng chống cằm suy nghĩ 🤔, mắt liếc lên, dấu chấm hỏi ý tưởng phát sáng nhấp nháy, có hiệu ứng nhún nhảy khi hover.
-- [x] Thay thế đồng bộ chữ `K!` cũ ở Header, màn hình Host và màn hình Player bằng chú vịt vàng suy nghĩ.
-- [x] Thu gọn thanh Header về giữa (`max-w-5xl mx-auto`), tạo lề an toàn `px-6 sm:px-10`, khắc phục lỗi logo và chữ EN bị tràn ra sát mép màn hình.
-- [x] Mở rộng nút chọn ngôn ngữ `VI / EN` to rõ, thoáng đãng, không bị co cụm bó hẹp.
-- [x] Xử lý triệt để thanh trượt âm lượng: Thiết kế con trượt tròn to màu cam đất viền trắng kem, ray trượt xanh rêu rõ nét, kéo di chuyển 0% - 100% êm ái.
+### 3. Xuất bản (Deploy) chính thức lên Vercel
+- [x] Kết nối tài khoản GitHub `NhuHaa` với Vercel (`nhonlu`).
+- [x] Cấu hình 3 biến môi trường Supabase trên Vercel.
+- [x] Xuất bản website thành công ra mạng Internet toàn cầu:
+  👉 **`https://quizzzlive-game-35dn.vercel.app`**
 
-### 4. Xử lý lỗi hệ thống & Chuẩn hóa tài liệu
-- [x] Khắc phục triệt để lỗi Hydration warning (`bis_skin_checked="1"`) do extension Bitdefender chèn vào bằng `suppressHydrationWarning` và `MutationObserver` trong `next/script`.
-- [x] Soạn thảo bản kế hoạch chi tiết toàn diện 5 giai đoạn: lưu tại [docs-ai/ke-hoach-chi-tiet.md](file:///Users/linhduong/.gemini/antigravity-ide/scratch/kahoot-rep/quizzz-live-project/docs-ai/ke-hoach-chi-tiet.md).
+### 4. Đại tu & Tinh chỉnh Giao diện Quản Trị (`/host/dashboard`) theo góp ý của Bạn
+- [x] **Căn lề Header & Logo thẳng tắp:** Quy chuẩn Header `Navbar` và phần nội dung chính về cùng khung `max-w-7xl mx-auto px-4 sm:px-8`. Logo Chú Vịt Vàng và chữ QuizLive thẳng hàng lề trái; các nút điều khiển thẳng hàng lề phải.
+- [x] **Đồng bộ cụm nút điều khiển Header & Cố định lỗi tràn nút ở Zoom 100%:**
+  - Sửa lỗi trong `globals.css` (bỏ `width: 100%` áp dụng nhầm lên thẻ `button`) khiến nút `VI / EN` bị dãn dài đẩy văng nút `Khóa` ra ngoài màn hình.
+  - Tinh chỉnh toàn bộ cụm nút trên cùng bên phải (`VI / EN`, `Host Quản Lý`, `Khóa`, `Âm thanh`): Chiều cao chuẩn hóa nhỏ gọn `h-10 sm:h-10.5` (40px - 42px), bo góc `rounded-xl sm:rounded-2xl`, lề đệm `px-3.5 sm:px-4`, bằng chằn chặn và neo sát lề phải `ml-auto justify-end`.
+  - Cụm 3 nút Toolbar (`Tải Mẫu Excel`, `Nhập Excel / CSV Tạo Đề`, `Tạo Bộ Đề Mới`) cũng được thu gọn kích thước đều nhau `h-10 sm:h-10.5`, căn sát lề phải `ml-auto`, không bị xếp chồng dãn dài.
+- [x] **Chuyển toàn bộ các nút màu cam sang Màu Xanh Lá đồng bộ:**
+  - Nút `+ Tạo Bộ Đề Mới` trên toolbar $\rightarrow$ Màu Xanh Lá Rừng Rậm / Emerald (`#1D4A30` viền `#3E855A`).
+  - Nút `Tất Cả 0` $\rightarrow$ Màu Xanh Lá đồng bộ.
+  - Nút `+ Tạo Bộ Đề Đầu Tiên` (khung rỗng) $\rightarrow$ Màu Xanh Lá.
+  - Nút `Phát Trực Tiếp` (Play Live) $\rightarrow$ Màu Xanh Lá.
+  - Nút `Mở Khóa` (`HostAuthGate`) & các nút `Lưu` trong Modal $\rightarrow$ Đều đồng bộ màu xanh lá.
+- [x] **Rút ngắn độ dài nút Toolbar & Canh trái icon:**
+  - 3 nút "Tải Mẫu Excel", "Nhập Excel / CSV Tạo Đề", "+ Tạo Bộ Đề Mới" được thu gọn kích thước vừa vặn theo chữ (`w-auto shrink-0 whitespace-nowrap`), chiều cao `h-10 sm:h-10.5`, bo góc `rounded-xl sm:rounded-2xl`.
+  - Icon được canh sang bên trái (`justify-start`), lề đệm bên trong `px-4` thụt vào êm ái, không dính sát mép khung.
+- [x] **Sửa triệt để lỗi chữ đè lên kính lúp trong Khung Tìm Kiếm:**
+  - Gán inline padding cố định `style={{ paddingLeft: '56px' }}` cho ô input.
+  - Khoảng trống giữa icon kính lúp và chữ gõ vào rộng tới 40px, tuyệt đối không bị đè chữ.
+- [x] **Thu gọn nút "Tất Cả 0":**
+  - Không còn bị kéo dãn dài sang mép phải, kích thước vừa vặn `w-auto shrink-0 px-4 h-11`, màu xanh lá hài hòa.
+- [x] **Đồng bộ màn hình khóa PIN & các hộp thoại:**
+  - Màn hình nhập PIN `8451` và các bảng tạo/nhập câu hỏi chuyển hoàn toàn sang theme Behance xanh rêu rừng rậm, bỏ hết màu xanh đen/tím cũ.
 
 ---
 
-## ⏳ Việc Sẽ Làm Tiếp Vào Ngày Mai (Theo Kế Hoạch 5 Bước)
-
-1. **[Bước 1] Thao tác trên tab Supabase (`New Project`):**
-   - Đặt tên dự án `quizlive-game`, tạo mật khẩu cơ sở dữ liệu.
-   - Chọn Region: **`Southeast Asia (Singapore)`** (độ trễ thấp nhất cho mạng VN).
-   - Nhấn **Create new project**.
-2. **[Bước 2] Chạy tập lệnh cơ sở dữ liệu trên Supabase:**
-   - Vào **SQL Editor** trên Supabase.
-   - Sao chép toàn bộ nội dung [supabase/schema.sql](file:///Users/linhduong/.gemini/antigravity-ide/scratch/kahoot-rep/supabase/schema.sql) $\rightarrow$ Dán và bấm **Run**.
-   - Sao chép [supabase/seed.sql](file:///Users/linhduong/.gemini/antigravity-ide/scratch/kahoot-rep/supabase/seed.sql) $\rightarrow$ Dán và bấm **Run** để nạp câu hỏi mẫu.
-3. **[Bước 3] Lấy 3 chìa khóa API từ Supabase (Project Settings > API):**
-   - `Project URL`
-   - `anon public key`
-   - `service_role secret key`
-4. **[Bước 4] Đẩy mã nguồn lên GitHub:**
-   - Chạy lệnh git commit và đẩy toàn bộ các thay đổi giao diện mới lên GitHub cá nhân.
-5. **[Bước 5] Triển khai (Deploy) lên Vercel:**
-   - Import repository từ GitHub vào Vercel.
-   - Dán 3 biến môi trường Supabase vào mục **Environment Variables**.
-   - Bấm **Deploy** để nhận link chính thức dạng `https://ten-du-an.vercel.app`.
-6. **[Bước 6] Chạy thử trận đấu trực tiếp:**
-   - Mở màn hình Host trên máy tính/TV $\rightarrow$ Chiếu mã PIN & QR Code.
-   - Dùng điện thoại bật 4G hoặc Wifi quét mã QR tham gia và trả lời trắc nghiệm thời gian thực!
+## ⏳ Hướng Phát Triển Tiếp Theo (Khi Cần Mở Rộng)
+1. **Thi đấu thực tế:** Chiếu máy tính/TV màn hình Host `/host/dashboard` $\rightarrow$ Phát trực tiếp $\rightarrow$ Cho bạn bè dùng điện thoại (Wifi hoặc 4G) quét mã QR vào tranh tài.
+2. **Thêm đề thi mới:** Nhập câu hỏi từ file Excel (.xlsx / .csv) bằng nút "Nhập Excel / CSV Tạo Đề".
+3. **Thêm tính năng phụ (tùy chọn):** Bổ sung thêm nhiều linh vật Avatar hoạt hình, chế độ đồng đội (Team Mode).
