@@ -27,16 +27,16 @@ export default function HostLeaderboardView({
   const topPlayers = players.slice(0, 5);
 
   return (
-    <div className="w-full min-h-[calc(100vh-4rem)] flex flex-col justify-between p-4 sm:p-8 bg-gradient-to-b from-indigo-950 via-slate-950 to-purple-950 text-white relative">
+    <div className="w-full min-h-[calc(100vh-4rem)] flex flex-col justify-between p-4 sm:p-8 bg-gradient-to-b from-[#112017] via-[#1a3324] to-[#0d1811] text-[#f4f7f5] relative">
       {/* Header */}
-      <div className="flex items-center justify-between pb-4 border-b border-slate-800">
+      <div className="flex items-center justify-between pb-4 border-b border-[#244230]">
         <div className="flex items-center gap-3">
           <div className="p-2.5 rounded-2xl bg-amber-500/20 text-amber-400 border border-amber-500/30">
             <Trophy className="w-7 h-7" />
           </div>
           <div>
             <h1 className="text-2xl sm:text-3xl font-black text-white">{t.leaderboardTitle}</h1>
-            <p className="text-xs text-slate-400">{t.leaderboardSubtitle}</p>
+            <p className="text-xs text-[#a3cbb1]">{t.leaderboardSubtitle}</p>
           </div>
         </div>
 
@@ -67,7 +67,7 @@ export default function HostLeaderboardView({
                   ? 'bg-gradient-to-r from-slate-400/20 via-slate-500/10 to-transparent border-slate-400/40'
                   : isThird
                   ? 'bg-gradient-to-r from-amber-700/20 via-amber-800/10 to-transparent border-amber-700/40'
-                  : 'bg-slate-900/80 border-slate-800'
+                  : 'bg-[#152a1e]/90 border-[#2b543b]'
               }`}
             >
               {/* Left: Rank & Nickname */}

@@ -66,18 +66,18 @@ export default function AvatarPickerModal({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 bg-black/80 backdrop-blur-sm animate-in fade-in">
-      <div className="w-full max-w-lg rounded-3xl bg-slate-900 border border-slate-700 shadow-2xl p-5 flex flex-col max-h-[90vh]">
+      <div className="w-full max-w-lg rounded-3xl bg-[#122218] border border-[#2b543b] shadow-2xl p-5 flex flex-col max-h-[90vh]">
         {/* Header */}
         <div className="flex items-center justify-between pb-3 border-b border-slate-800 shrink-0">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-xl bg-purple-600/30 border border-purple-500/40 flex items-center justify-center text-purple-300">
+            <div className="w-8 h-8 rounded-xl bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-emerald-300">
               <Sparkles className="w-4 h-4" />
             </div>
             <div>
               <h3 className="text-base font-black text-white">
                 {lang === 'vi' ? 'Thư Viện Linh Vật & Biểu Tượng' : 'Avatar & Emoji Library'}
               </h3>
-              <p className="text-xs text-slate-400">
+              <p className="text-xs text-[#a3cbb1]">
                 {lang === 'vi' ? 'Chọn biểu tượng đại diện của bạn trong trận đấu' : 'Pick your mascot to represent you in the match'}
               </p>
             </div>
@@ -86,14 +86,14 @@ export default function AvatarPickerModal({
           <button
             type="button"
             onClick={onClose}
-            className="p-2 rounded-xl bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700 transition cursor-pointer"
+            className="p-2 rounded-xl bg-[#152a1e] text-[#a3cbb1] hover:text-white hover:bg-[#1c3626] border border-[#2b543b] transition cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Category Tabs */}
-        <div className="flex gap-1.5 overflow-x-auto py-3 shrink-0 scrollbar-none border-b border-slate-800/60">
+        <div className="flex gap-1.5 overflow-x-auto py-3 shrink-0 scrollbar-none border-b border-[#244230]">
           {CATEGORIES.map(cat => {
             const label = lang === 'vi' ? cat.nameVi : cat.nameEn;
             const isActive = activeTab === cat.id;
@@ -104,8 +104,8 @@ export default function AvatarPickerModal({
                 onClick={() => setActiveTab(cat.id)}
                 className={`px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition cursor-pointer ${
                   isActive
-                    ? 'bg-purple-600 text-white shadow-md shadow-purple-600/30'
-                    : 'bg-slate-800/80 text-slate-400 hover:text-slate-200 hover:bg-slate-700/80'
+                    ? 'bg-emerald-600 text-white shadow-md shadow-emerald-700/40 border border-emerald-400/40'
+                    : 'bg-[#152a1e] text-[#a3cbb1] hover:text-white hover:bg-[#1c3626] border border-[#244230]'
                 }`}
               >
                 {label}
@@ -129,8 +129,8 @@ export default function AvatarPickerModal({
                   }}
                   className={`h-14 sm:h-16 rounded-2xl text-2xl sm:text-3xl flex items-center justify-center transition transform active:scale-95 cursor-pointer ${
                     isSelected
-                      ? 'bg-purple-600 ring-2 ring-white scale-105 shadow-lg shadow-purple-600/50'
-                      : 'bg-slate-800/90 hover:bg-slate-700 hover:scale-105'
+                      ? 'bg-emerald-600 ring-2 ring-emerald-300 scale-105 shadow-lg shadow-emerald-800/50'
+                      : 'bg-[#152a1e] hover:bg-[#1c3626] border border-[#244230] hover:scale-105'
                   }`}
                 >
                   {icon}

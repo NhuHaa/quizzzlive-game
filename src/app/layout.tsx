@@ -29,7 +29,7 @@ export default function RootLayout({
     >
       <body
         suppressHydrationWarning
-        className={`${roboto.className} min-h-full flex flex-col overflow-x-hidden bg-slate-950 text-slate-100 selection:bg-purple-500 selection:text-white`}
+        className={`${roboto.className} min-h-full flex flex-col overflow-x-hidden bg-[#112017] text-[#f4f7f5] selection:bg-[#B84E2E] selection:text-white`}
       >
         <Script
           id="remove-bis-skin"

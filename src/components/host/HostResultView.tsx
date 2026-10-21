@@ -64,14 +64,14 @@ export default function HostResultView({
   const displayFalse = lang === 'vi' ? 'Sai' : 'False';
 
   return (
-    <div className="w-full min-h-[calc(100vh-4rem)] flex flex-col justify-between p-4 sm:p-8 bg-slate-950 text-white">
+    <div className="w-full min-h-[calc(100vh-4rem)] flex flex-col justify-between p-4 sm:p-8 bg-gradient-to-b from-[#112017] via-[#1a3324] to-[#0d1811] text-[#f4f7f5]">
       {/* Top Header */}
-      <div className="flex items-center justify-between pb-4 border-b border-slate-800">
+      <div className="flex items-center justify-between pb-4 border-b border-[#244230]">
         <div>
           <span className="text-xs font-bold uppercase tracking-wider text-emerald-400 block mb-1">
             {t.questionResultTitle}
           </span>
-          <h2 className="text-xl sm:text-3xl font-black text-slate-100">{question.prompt}</h2>
+          <h2 className="text-xl sm:text-3xl font-black text-white">{question.prompt}</h2>
         </div>
 
         {skipLeaderboard ? (
@@ -79,7 +79,7 @@ export default function HostResultView({
             <button
               onClick={onShowLeaderboard || onNext}
               type="button"
-              className="inline-flex items-center gap-1.5 sm:gap-2 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition shadow-sm cursor-pointer"
+              className="inline-flex items-center gap-1.5 sm:gap-2 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl bg-[#152a1e] hover:bg-[#1c3626] border border-[#2b543b] text-xs sm:text-sm font-bold text-[#d4e7db] hover:text-white transition shadow-sm cursor-pointer"
               title={lang === 'vi' ? 'Xem bảng điểm câu hỏi này' : 'View leaderboard for this question'}
             >
               <Trophy className="w-4 h-4 text-amber-400" />
@@ -89,7 +89,7 @@ export default function HostResultView({
             <button
               onClick={onNextQuestion || onNext}
               type="button"
-              className="inline-flex items-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 rounded-xl bg-gradient-to-r from-emerald-600 via-teal-600 to-indigo-600 hover:from-emerald-500 hover:to-indigo-500 font-extrabold text-sm sm:text-base text-white shadow-lg shadow-emerald-700/30 transition cursor-pointer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 rounded-xl bg-gradient-to-r from-emerald-600 via-teal-600 to-green-600 hover:from-emerald-500 hover:to-green-500 font-extrabold text-sm sm:text-base text-white shadow-lg shadow-emerald-700/30 transition cursor-pointer"
             >
               <span>{isLastQuestion ? t.seePodiumBtn : t.skipToNextQuestion}</span>
               <FastForward className="w-5 h-5" />
@@ -100,7 +100,7 @@ export default function HostResultView({
             <button
               onClick={onNextQuestion || onNext}
               type="button"
-              className="inline-flex items-center gap-1.5 sm:gap-2 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition shadow-sm cursor-pointer"
+              className="inline-flex items-center gap-1.5 sm:gap-2 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl bg-[#152a1e] hover:bg-[#1c3626] border border-[#2b543b] text-xs sm:text-sm font-bold text-[#d4e7db] hover:text-white transition shadow-sm cursor-pointer"
               title={lang === 'vi' ? 'Bỏ qua bảng xếp hạng, đi thẳng tới câu tiếp theo' : 'Skip leaderboard, proceed to next question'}
             >
               <FastForward className="w-4 h-4 text-amber-400" />
@@ -110,7 +110,7 @@ export default function HostResultView({
             <button
               onClick={onShowLeaderboard || onNext}
               type="button"
-              className="inline-flex items-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 font-extrabold text-sm sm:text-base text-white shadow-lg shadow-indigo-600/30 transition cursor-pointer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 rounded-xl bg-gradient-to-r from-emerald-600 via-teal-600 to-green-600 hover:from-emerald-500 hover:to-green-500 font-extrabold text-sm sm:text-base text-white shadow-lg shadow-emerald-900/40 transition cursor-pointer"
             >
               <span>{t.seeLeaderboardBtn}</span>
               <ArrowRight className="w-5 h-5" />
@@ -122,7 +122,7 @@ export default function HostResultView({
       {/* Main Bar Chart: Answer Distribution */}
       <div className="my-auto py-8 max-w-5xl mx-auto w-full">
         {question.type === 'multiple_choice' && (
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 items-end min-h-[300px] sm:min-h-[380px] p-6 bg-slate-900/60 rounded-3xl border border-slate-800">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 items-end min-h-[300px] sm:min-h-[380px] p-6 bg-[#152a1e]/90 rounded-3xl border border-[#2b543b] shadow-2xl">
             {question.options.map((opt, idx) => {
               const count = getCount(opt);
               const maxCount = Math.max(1, ...Object.values(distribution), totalAnswers);
@@ -221,9 +221,9 @@ export default function HostResultView({
         )}
 
         {question.type === 'fill_in_the_blank' && (
-          <div className="p-8 rounded-3xl bg-slate-900 border border-slate-800 text-center space-y-6">
+          <div className="p-8 rounded-3xl bg-[#152a1e]/90 border border-[#2b543b] text-center space-y-6 shadow-2xl">
             <div>
-              <span className="text-xs text-indigo-400 uppercase font-bold tracking-widest block mb-2">
+              <span className="text-xs text-emerald-400 uppercase font-bold tracking-widest block mb-2">
                 {t.acceptedAnswers}
               </span>
               <div className="inline-flex flex-wrap gap-2 justify-center">

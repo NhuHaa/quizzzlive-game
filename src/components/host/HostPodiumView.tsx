@@ -52,17 +52,17 @@ export default function HostPodiumView({ players, quizTitle, onRestart }: HostPo
   }, [playPodiumFanfare]);
 
   return (
-    <div className="w-full min-h-[calc(100vh-4rem)] flex flex-col justify-between p-4 sm:p-8 bg-gradient-to-b from-indigo-950 via-purple-950 to-slate-950 text-white relative overflow-hidden">
+    <div className="w-full min-h-[calc(100vh-4rem)] flex flex-col justify-between p-4 sm:p-8 bg-gradient-to-b from-[#112017] via-[#1a3324] to-[#0d1811] text-[#f4f7f5] relative overflow-hidden">
       {/* Top Banner */}
       <div className="text-center py-4 relative z-10">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/20 border border-amber-500/40 text-amber-300 font-bold text-xs uppercase tracking-widest mb-3">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/20 border border-amber-500/40 text-amber-300 font-bold text-xs uppercase tracking-widest mb-3 shadow-md">
           <Sparkles className="w-4 h-4" />
           <span>{t.podiumBadge}</span>
         </div>
         <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-white to-amber-200">
           {t.podiumTitle}
         </h1>
-        <p className="text-sm text-purple-200/80 mt-1">{quizTitle}</p>
+        <p className="text-sm text-[#b4d1c0] mt-1">{quizTitle}</p>
       </div>
 
       {/* Center: 3D Olympic Style Podium */}
@@ -138,7 +138,7 @@ export default function HostPodiumView({ players, quizTitle, onRestart }: HostPo
       <div className="flex flex-wrap items-center justify-center gap-4 py-4 relative z-10">
         <button
           onClick={onRestart}
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-purple-600 hover:bg-purple-500 font-bold text-white shadow-lg transition cursor-pointer"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-emerald-600 via-teal-600 to-green-600 hover:from-emerald-500 hover:to-green-500 font-bold text-white shadow-xl shadow-emerald-900/40 transition cursor-pointer"
         >
           <RotateCcw className="w-5 h-5" />
           <span>{t.playAgainBtn}</span>
@@ -146,7 +146,7 @@ export default function HostPodiumView({ players, quizTitle, onRestart }: HostPo
 
         <Link
           href="/host/dashboard"
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 font-bold text-slate-200 hover:text-white transition cursor-pointer"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#152a1e] hover:bg-[#1c3626] border border-[#2b543b] font-bold text-[#d4e7db] hover:text-white transition cursor-pointer shadow-md"
         >
           <Home className="w-5 h-5" />
           <span>{t.returnDashboardBtn}</span>

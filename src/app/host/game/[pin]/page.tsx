@@ -73,7 +73,7 @@ export default function HostGamePage({ params }: PageProps) {
   // Custom Theme state
   const [isThemeModalOpen, setIsThemeModalOpen] = useState(false);
   const [theme, setTheme] = useState<ThemeSettings>({
-    bgPreset: 'deep-space',
+    bgPreset: 'forest-moss',
     logoUrl: undefined
   });
 
@@ -532,9 +532,9 @@ export default function HostGamePage({ params }: PageProps) {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-slate-950 flex flex-col items-center justify-center text-white">
-        <Loader2 className="w-10 h-10 animate-spin text-indigo-500 mb-4" />
-        <p className="text-slate-400 font-medium">
+      <div className="min-h-screen bg-[#112017] flex flex-col items-center justify-center text-white">
+        <Loader2 className="w-10 h-10 animate-spin text-emerald-500 mb-4" />
+        <p className="text-[#a3cbb1] font-medium">
           {lang === 'vi' ? 'Đang kết nối phòng đấu...' : 'Connecting to game room...'}
         </p>
       </div>
@@ -552,14 +552,14 @@ export default function HostGamePage({ params }: PageProps) {
     <HostAuthGate>
       <div className={`min-h-[100dvh] flex flex-col bg-gradient-to-br ${bgGradientClass} text-slate-100 select-none overflow-x-hidden transition-colors duration-500`}>
         {/* Top Host Control Bar */}
-        <header className="w-full border-b border-slate-800/80 bg-slate-950/80 backdrop-blur-md sticky top-0 z-40 px-4 py-2.5 flex items-center justify-between gap-3">
+        <header className="w-full border-b border-[#244230] bg-[#112017]/90 backdrop-blur-md sticky top-0 z-40 px-4 py-2.5 flex items-center justify-between gap-3">
           {/* Left: Presentation Brand / Title */}
           <div className="flex items-center gap-3">
             {theme.logoUrl ? (
               <img
                 src={theme.logoUrl}
                 alt="Presentation Brand Logo"
-                className="h-8 max-w-[120px] object-contain rounded bg-white/5 p-1 border border-slate-800"
+                className="h-8 max-w-[120px] object-contain rounded bg-white/5 p-1 border border-[#2b543b]"
                 onError={(e) => {
                   (e.target as HTMLImageElement).style.display = 'none';
                 }}
@@ -568,10 +568,10 @@ export default function HostGamePage({ params }: PageProps) {
               <ThinkingDuckLogo size="sm" />
             )}
             <div className="hidden sm:block">
-              <span className="text-xs font-bold text-slate-300 truncate max-w-xs block">
+              <span className="text-xs font-bold text-[#d4e7db] truncate max-w-xs block">
                 {quizTitle}
               </span>
-              <span className="text-[10px] text-indigo-400 font-mono font-bold">
+              <span className="text-[10px] text-emerald-400 font-mono font-bold">
                 PIN: {pin}
               </span>
             </div>
@@ -594,13 +594,13 @@ export default function HostGamePage({ params }: PageProps) {
               className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border text-xs font-bold transition shadow-sm cursor-pointer ${
                 autoAdvance
                   ? 'bg-emerald-500/20 border-emerald-500/50 text-emerald-300 hover:bg-emerald-500/30'
-                  : 'bg-slate-900 border-slate-700 text-slate-400 hover:text-slate-200'
+                  : 'bg-[#152a1e] border-[#244230] text-[#a3cbb1] hover:text-slate-200'
               }`}
               title={lang === 'vi' ? 'Bật/Tắt chế độ tự động chuyển tiếp qua các câu hỏi và bảng điểm' : 'Toggle auto-advance across questions and leaderboard'}
             >
               <Timer className={`w-3.5 h-3.5 ${autoAdvance ? 'text-emerald-400' : 'text-slate-400'}`} />
               <span>{t.autoNextLabel}:</span>
-              <span className={`px-1.5 py-0.5 rounded text-[10px] font-black ${autoAdvance ? 'bg-emerald-500 text-white' : 'bg-slate-800 text-slate-400'}`}>
+              <span className={`px-1.5 py-0.5 rounded text-[10px] font-black ${autoAdvance ? 'bg-emerald-600 text-white' : 'bg-[#0c1811] text-[#a3cbb1]'}`}>
                 {autoAdvance ? t.autoNextOn : t.autoNextOff}
               </span>
             </button>
@@ -612,13 +612,13 @@ export default function HostGamePage({ params }: PageProps) {
               className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border text-xs font-bold transition shadow-sm cursor-pointer ${
                 skipLeaderboard
                   ? 'bg-amber-500/20 border-amber-500/50 text-amber-300 hover:bg-amber-500/30'
-                  : 'bg-slate-900 border-slate-700 text-slate-400 hover:text-slate-200'
+                  : 'bg-[#152a1e] border-[#244230] text-[#a3cbb1] hover:text-slate-200'
               }`}
               title={t.skipLeaderboardTooltip}
             >
               <FastForward className={`w-3.5 h-3.5 ${skipLeaderboard ? 'text-amber-400' : 'text-slate-400'}`} />
               <span>{t.skipLeaderboardLabel}:</span>
-              <span className={`px-1.5 py-0.5 rounded text-[10px] font-black ${skipLeaderboard ? 'bg-amber-500 text-slate-950 font-black' : 'bg-slate-800 text-slate-400'}`}>
+              <span className={`px-1.5 py-0.5 rounded text-[10px] font-black ${skipLeaderboard ? 'bg-amber-500 text-slate-950 font-black' : 'bg-[#0c1811] text-[#a3cbb1]'}`}>
                 {skipLeaderboard ? t.skipLeaderboardOn : t.skipLeaderboardOff}
               </span>
             </button>
@@ -629,15 +629,15 @@ export default function HostGamePage({ params }: PageProps) {
               type="button"
               className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border text-xs font-bold transition shadow-sm cursor-pointer ${
                 showQAOnPlayer
-                  ? 'bg-indigo-500/20 border-indigo-500/50 text-indigo-300 hover:bg-indigo-500/30'
-                  : 'bg-slate-900 border-slate-700 text-slate-400 hover:text-slate-200'
+                  ? 'bg-emerald-500/20 border-emerald-500/50 text-emerald-300 hover:bg-emerald-500/30'
+                  : 'bg-[#152a1e] border-[#244230] text-[#a3cbb1] hover:text-slate-200'
               }`}
               title={t.hostShowQATooltip}
             >
-              <Eye className={`w-3.5 h-3.5 ${showQAOnPlayer ? 'text-indigo-400' : 'text-slate-400'}`} />
+              <Eye className={`w-3.5 h-3.5 ${showQAOnPlayer ? 'text-emerald-400' : 'text-slate-400'}`} />
               <span className="hidden xl:inline">{t.hostShowQALabel}:</span>
               <span className="xl:hidden">Q&A:</span>
-              <span className={`px-1.5 py-0.5 rounded text-[10px] font-black ${showQAOnPlayer ? 'bg-indigo-500 text-white' : 'bg-slate-800 text-slate-400'}`}>
+              <span className={`px-1.5 py-0.5 rounded text-[10px] font-black ${showQAOnPlayer ? 'bg-emerald-600 text-white' : 'bg-[#0c1811] text-[#a3cbb1]'}`}>
                 {showQAOnPlayer ? t.autoNextOn : t.autoNextOff}
               </span>
             </button>
@@ -648,15 +648,15 @@ export default function HostGamePage({ params }: PageProps) {
               type="button"
               className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border text-xs font-bold transition shadow-sm cursor-pointer ${
                 shuffleQuestions
-                  ? 'bg-purple-500/20 border-purple-500/50 text-purple-300 hover:bg-purple-500/30'
-                  : 'bg-slate-900 border-slate-700 text-slate-400 hover:text-slate-200'
+                  ? 'bg-emerald-500/20 border-emerald-500/50 text-emerald-300 hover:bg-emerald-500/30'
+                  : 'bg-[#152a1e] border-[#244230] text-[#a3cbb1] hover:text-slate-200'
               }`}
               title={t.shuffleQuestionsTooltip}
             >
-              <Shuffle className={`w-3.5 h-3.5 ${shuffleQuestions ? 'text-purple-400' : 'text-slate-400'}`} />
+              <Shuffle className={`w-3.5 h-3.5 ${shuffleQuestions ? 'text-emerald-400' : 'text-slate-400'}`} />
               <span className="hidden xl:inline">{t.shuffleQuestionsLabel}:</span>
               <span className="xl:hidden">Xáo câu:</span>
-              <span className={`px-1.5 py-0.5 rounded text-[10px] font-black ${shuffleQuestions ? 'bg-purple-500 text-white' : 'bg-slate-800 text-slate-400'}`}>
+              <span className={`px-1.5 py-0.5 rounded text-[10px] font-black ${shuffleQuestions ? 'bg-emerald-600 text-white' : 'bg-[#0c1811] text-[#a3cbb1]'}`}>
                 {shuffleQuestions ? t.autoNextOn : t.autoNextOff}
               </span>
             </button>
@@ -667,15 +667,15 @@ export default function HostGamePage({ params }: PageProps) {
               type="button"
               className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border text-xs font-bold transition shadow-sm cursor-pointer ${
                 shuffleAnswers
-                  ? 'bg-pink-500/20 border-pink-500/50 text-pink-300 hover:bg-pink-500/30'
-                  : 'bg-slate-900 border-slate-700 text-slate-400 hover:text-slate-200'
+                  ? 'bg-teal-500/20 border-teal-500/50 text-teal-300 hover:bg-teal-500/30'
+                  : 'bg-[#152a1e] border-[#244230] text-[#a3cbb1] hover:text-slate-200'
               }`}
               title={t.shuffleAnswersTooltip}
             >
-              <Shuffle className={`w-3.5 h-3.5 ${shuffleAnswers ? 'text-pink-400' : 'text-slate-400'}`} />
+              <Shuffle className={`w-3.5 h-3.5 ${shuffleAnswers ? 'text-teal-400' : 'text-slate-400'}`} />
               <span className="hidden xl:inline">{t.shuffleAnswersLabel}:</span>
               <span className="xl:hidden">Xáo đáp án:</span>
-              <span className={`px-1.5 py-0.5 rounded text-[10px] font-black ${shuffleAnswers ? 'bg-pink-500 text-white' : 'bg-slate-800 text-slate-400'}`}>
+              <span className={`px-1.5 py-0.5 rounded text-[10px] font-black ${shuffleAnswers ? 'bg-teal-600 text-white' : 'bg-[#0c1811] text-[#a3cbb1]'}`}>
                 {shuffleAnswers ? t.autoNextOn : t.autoNextOff}
               </span>
             </button>
@@ -684,10 +684,10 @@ export default function HostGamePage({ params }: PageProps) {
             <button
               onClick={() => setIsThemeModalOpen(true)}
               type="button"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs font-semibold text-purple-300 hover:text-white transition shadow-sm cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#152a1e] hover:bg-[#1c3626] border border-[#2b543b] text-xs font-semibold text-emerald-300 hover:text-white transition shadow-sm cursor-pointer"
               title={lang === 'vi' ? 'Thay đổi màu sắc nền và logo thương hiệu hiển thị' : 'Change theme colors & company logo'}
             >
-              <Palette className="w-3.5 h-3.5 text-purple-400" />
+              <Palette className="w-3.5 h-3.5 text-emerald-400" />
               <span className="hidden md:inline">{t.themeCustomBtn}</span>
             </button>
 

@@ -12,9 +12,17 @@ export interface ThemeSettings {
 
 export const THEME_PRESETS = [
   {
+    id: 'forest-moss',
+    nameVi: 'Xanh Rêu Rừng Rậm (Mặc định)',
+    nameEn: 'Forest Moss (Default)',
+    gradient: 'from-[#112017] via-[#1a3324] to-[#0d1811]',
+    primaryColor: '#2b543b',
+    previewBadge: 'bg-emerald-700'
+  },
+  {
     id: 'deep-space',
-    nameVi: 'Không Gian Sâu (Mặc định)',
-    nameEn: 'Deep Space (Default)',
+    nameVi: 'Không Gian Sâu',
+    nameEn: 'Deep Space',
     gradient: 'from-indigo-950 via-purple-950 to-slate-950',
     primaryColor: '#6366f1',
     previewBadge: 'bg-indigo-600'
@@ -92,25 +100,25 @@ export default function ThemeCustomizerModal({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm animate-in fade-in">
-      <div className="bg-slate-900 border border-slate-700 w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden text-slate-100 flex flex-col">
+      <div className="bg-[#122218] border border-[#2b543b] w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden text-slate-100 flex flex-col">
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-800 bg-slate-900/90">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-[#244230] bg-[#152a1e]/90">
           <div className="flex items-center gap-2.5">
-            <div className="p-2 rounded-xl bg-purple-500/20 text-purple-400 border border-purple-500/30">
+            <div className="p-2 rounded-xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
               <Palette className="w-5 h-5" />
             </div>
             <div>
               <h3 className="font-bold text-lg text-white">
                 {lang === 'vi' ? 'Tùy Biến Giao Diện Phòng Đấu' : 'Customize Presentation Theme'}
               </h3>
-              <p className="text-xs text-slate-400">
+              <p className="text-xs text-[#a3cbb1]">
                 {lang === 'vi' ? 'Màu nền máy chiếu & Logo thương hiệu / doanh nghiệp' : 'Screen background & Company / Event logo'}
               </p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 text-slate-400 hover:text-white rounded-lg hover:bg-slate-800 transition cursor-pointer"
+            className="p-1.5 text-[#a3cbb1] hover:text-white rounded-lg hover:bg-[#1c3626] transition cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
@@ -120,7 +128,7 @@ export default function ThemeCustomizerModal({
         <div className="p-6 space-y-6">
           {/* Background Preset */}
           <div className="space-y-3">
-            <label className="text-xs font-bold text-slate-300 uppercase tracking-wider block">
+            <label className="text-xs font-bold text-[#d4e7db] uppercase tracking-wider block">
               {lang === 'vi' ? '1. Chọn tông màu nền chủ đạo' : '1. Select Color Theme'}
             </label>
             <div className="grid grid-cols-2 gap-3">
@@ -133,13 +141,13 @@ export default function ThemeCustomizerModal({
                     onClick={() => setSelectedBg(preset.id)}
                     className={`p-3.5 rounded-2xl border text-left flex flex-col gap-2 transition cursor-pointer ${
                       isSelected
-                        ? 'border-indigo-500 bg-indigo-950/40 ring-2 ring-indigo-500/30'
-                        : 'border-slate-800 bg-slate-950/60 hover:border-slate-700'
+                        ? 'border-emerald-500 bg-emerald-950/50 ring-2 ring-emerald-500/30'
+                        : 'border-[#244230] bg-[#0c1811] hover:border-[#2b543b]'
                     }`}
                   >
                     <div className="flex items-center justify-between">
                       <div className={`w-6 h-6 rounded-full ${preset.previewBadge} border border-white/20 shadow-sm`} />
-                      {isSelected && <Check className="w-4 h-4 text-indigo-400" />}
+                      {isSelected && <Check className="w-4 h-4 text-emerald-400" />}
                     </div>
                     <span className="text-xs font-bold text-white">
                       {lang === 'vi' ? preset.nameVi : preset.nameEn}
@@ -237,7 +245,7 @@ export default function ThemeCustomizerModal({
           <button
             type="button"
             onClick={handleApply}
-            className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-bold text-xs shadow-lg shadow-indigo-600/30 transition cursor-pointer"
+            className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 via-teal-600 to-green-600 hover:from-emerald-500 hover:to-green-500 text-white font-bold text-xs shadow-xl shadow-emerald-950/40 transition cursor-pointer"
           >
             {lang === 'vi' ? 'Áp Dụng Giao Diện' : 'Apply Theme'}
           </button>

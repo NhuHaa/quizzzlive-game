@@ -255,12 +255,12 @@ export default function PlayPage({ params }: PlayPageProps) {
   };
 
   return (
-    <div className="min-h-[100dvh] w-full max-w-full flex flex-col bg-slate-950 text-slate-100 select-none overflow-x-hidden">
+    <div className="min-h-[100dvh] w-full max-w-full flex flex-col bg-gradient-to-b from-[#112017] via-[#1a3324] to-[#0d1811] text-[#f4f7f5] select-none overflow-x-hidden relative">
       {/* Compact dedicated Player Game Header */}
-      <header className="w-full max-w-full px-3 sm:px-4 h-12 flex items-center justify-between border-b border-slate-800/80 bg-slate-950/90 shrink-0 sticky top-0 z-40">
+      <header className="w-full max-w-full px-3 sm:px-4 h-12 flex items-center justify-between border-b border-[#244230] bg-[#112017]/95 backdrop-blur-md shrink-0 sticky top-0 z-40">
         <div className="flex items-center gap-2">
           <ThinkingDuckLogo size="sm" />
-          <span className="font-mono text-xs font-bold text-slate-300">
+          <span className="font-mono text-xs font-bold text-[#d4e7db]">
             PIN: <span className="text-yellow-300 font-extrabold">{pin}</span>
           </span>
         </div>
@@ -272,20 +272,20 @@ export default function PlayPage({ params }: PlayPageProps) {
             type="button"
             className={`inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-2.5 py-1 rounded-xl border text-[11px] sm:text-xs font-bold transition cursor-pointer shadow-sm ${
               showQA
-                ? 'bg-indigo-600/30 border-indigo-500/50 text-indigo-200 hover:bg-indigo-600/40'
-                : 'bg-slate-900 border-slate-700 text-slate-400 hover:text-slate-300'
+                ? 'bg-[#1d4a30] border-[#3e855a] text-[#d4e7db] hover:bg-[#255e3e]'
+                : 'bg-[#152a1e] border-[#244230] text-[#a3cbb1] hover:text-[#d4e7db]'
             }`}
             title={t.showQATooltip}
           >
             {showQA ? (
-              <Eye className="w-3.5 h-3.5 text-indigo-400" />
+              <Eye className="w-3.5 h-3.5 text-emerald-400" />
             ) : (
               <EyeOff className="w-3.5 h-3.5 text-slate-400" />
             )}
             <span className="hidden xs:inline">{t.showQALabel}:</span>
             <span
               className={`px-1 py-0.2 rounded text-[10px] font-black ${
-                showQA ? 'bg-indigo-500 text-white' : 'bg-slate-800 text-slate-400'
+                showQA ? 'bg-emerald-600 text-white' : 'bg-[#0c1811] text-[#a3cbb1]'
               }`}
             >
               {showQA ? t.showQAOn : t.showQAOff}
@@ -297,21 +297,21 @@ export default function PlayPage({ params }: PlayPageProps) {
         </div>
       </header>
 
-      <main className="flex-1 flex flex-col items-center justify-center p-2 sm:p-4 w-full max-w-full min-h-0">
+      <main className="flex-1 flex flex-col items-center justify-center p-2 sm:p-4 w-full max-w-full min-h-0 relative z-10">
         {/* STEP 1: Enter Nickname & Pick Avatar */}
         {playerView === 'enter_nickname' && (
-          <div className="w-full max-w-md p-5 sm:p-8 rounded-3xl bg-slate-900/90 border border-slate-800 shadow-2xl backdrop-blur-xl animate-in zoom-in-95 my-auto">
+          <div className="w-full max-w-md p-5 sm:p-8 rounded-3xl bg-[#152a1e]/95 border border-[#2b543b] shadow-2xl backdrop-blur-xl animate-in zoom-in-95 my-auto">
             <div className="text-center mb-5">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-500/20 text-purple-300 text-xs font-bold font-mono mb-2">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1b3425] border border-[#2e573e] text-emerald-300 text-xs font-bold font-mono mb-2 shadow-sm">
                 PIN: {pin}
               </div>
               <h1 className="text-2xl sm:text-3xl font-black text-white">{t.chooseNicknameTitle}</h1>
-              <p className="text-xs text-slate-400 mt-1">{t.chooseNicknameDesc}</p>
+              <p className="text-xs text-[#a3cbb1] mt-1">{t.chooseNicknameDesc}</p>
             </div>
 
             {/* Avatar Selector */}
             <div className="mb-5">
-              <label className="block text-xs uppercase font-extrabold tracking-wider text-slate-400 mb-2 text-center">
+              <label className="block text-xs uppercase font-extrabold tracking-wider text-[#a3cbb1] mb-2 text-center">
                 {t.chooseAvatar}
               </label>
               <div className="flex flex-wrap justify-center gap-2">
@@ -322,8 +322,8 @@ export default function PlayPage({ params }: PlayPageProps) {
                     onClick={() => setSelectedAvatar(av)}
                     className={`w-10 h-10 sm:w-11 sm:h-11 rounded-2xl text-xl sm:text-2xl flex items-center justify-center transition cursor-pointer ${
                       selectedAvatar === av
-                        ? 'bg-purple-600 scale-110 shadow-lg shadow-purple-600/40 ring-2 ring-white'
-                        : 'bg-slate-800 hover:bg-slate-700'
+                        ? 'bg-emerald-600 scale-110 shadow-lg shadow-emerald-800/50 ring-2 ring-emerald-300'
+                        : 'bg-[#152a1e] hover:bg-[#1c3626] border border-[#244230]'
                     }`}
                   >
                     {av}
@@ -334,7 +334,7 @@ export default function PlayPage({ params }: PlayPageProps) {
                 {!AVATARS.includes(selectedAvatar) && (
                   <button
                     type="button"
-                    className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl text-xl sm:text-2xl flex items-center justify-center bg-purple-600 scale-110 shadow-lg shadow-purple-600/40 ring-2 ring-white transition"
+                    className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl text-xl sm:text-2xl flex items-center justify-center bg-emerald-600 scale-110 shadow-lg shadow-emerald-800/50 ring-2 ring-emerald-300 transition"
                   >
                     {selectedAvatar}
                   </button>
@@ -345,7 +345,7 @@ export default function PlayPage({ params }: PlayPageProps) {
                   type="button"
                   onClick={() => setIsAvatarModalOpen(true)}
                   title={lang === 'vi' ? 'Thêm linh vật khác...' : 'More avatars...'}
-                  className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-indigo-600/20 hover:bg-indigo-600/40 border border-indigo-500/40 text-indigo-300 flex items-center justify-center transition cursor-pointer"
+                  className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-emerald-600/20 hover:bg-emerald-600/40 border border-emerald-500/40 text-emerald-300 flex items-center justify-center transition cursor-pointer"
                 >
                   <MoreHorizontal className="w-5 h-5" />
                 </button>
@@ -368,7 +368,7 @@ export default function PlayPage({ params }: PlayPageProps) {
                   value={nickname}
                   onChange={e => setNickname(e.target.value)}
                   placeholder={t.nicknameInputPlaceholder}
-                  className="w-full text-center text-lg sm:text-xl font-bold py-3.5 px-4 rounded-2xl bg-slate-950 border-2 border-slate-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 text-white placeholder:text-slate-600 outline-none transition"
+                  className="w-full text-center text-lg sm:text-xl font-bold py-3.5 px-4 rounded-2xl bg-[#0c1811] border-2 border-[#2b543b] focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 text-white placeholder:text-[#3e855a] outline-none transition shadow-inner"
                   autoFocus
                 />
               </div>
@@ -403,14 +403,14 @@ export default function PlayPage({ params }: PlayPageProps) {
           <PlayerLobby player={player} pin={pin} />
         )}
 
-        {/* STEP 3: Get Ready Countdown */}
+        {/* STEP 3: Get Ready Countdown - Khởi động trò chơi */}
         {playerView === 'get_ready' && (
           <div className="text-center space-y-4 animate-pulse my-auto">
-            <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-3xl bg-indigo-500/20 border border-indigo-500/40 text-indigo-400 flex items-center justify-center mx-auto shadow-2xl">
+            <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-3xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center mx-auto shadow-2xl shadow-emerald-900/40">
               <Sparkles className="w-10 h-10 sm:w-12 sm:h-12" />
             </div>
             <h2 className="text-3xl sm:text-5xl font-black text-white">{t.getReadyTitle}</h2>
-            <p className="text-slate-400 text-xs sm:text-sm">{t.questionComing}</p>
+            <p className="text-[#a3cbb1] text-xs sm:text-sm">{t.questionComing}</p>
           </div>
         )}
 
@@ -418,7 +418,7 @@ export default function PlayPage({ params }: PlayPageProps) {
         {playerView === 'answering' && currentQuestion && (
           <div className="w-full max-w-2xl flex-1 flex flex-col justify-between py-1 h-full min-h-0">
             <div className="flex items-center justify-between px-2 pb-1 shrink-0">
-              <span className="text-xs font-mono text-purple-300 font-bold">
+              <span className="text-xs font-mono text-emerald-300 font-bold">
                 {t.questionWord} {currentQuestionIndex + 1} / {totalQuestions}
               </span>
               <span className="text-xs font-mono font-bold text-yellow-300">
@@ -432,20 +432,20 @@ export default function PlayPage({ params }: PlayPageProps) {
                 <img
                   src={currentQuestion.media_url}
                   alt="Question Image"
-                  className="max-h-24 sm:max-h-36 rounded-xl object-contain border border-slate-700 shadow"
+                  className="max-h-24 sm:max-h-36 rounded-xl object-contain border border-[#2b543b] shadow"
                 />
               </div>
             )}
 
             {/* Question Prompt: When showQA is true (default), show prompt so players can read directly on phone */}
             {showQA ? (
-              <div className="w-full my-1 sm:my-1.5 px-3.5 py-2.5 sm:py-3.5 rounded-2xl bg-gradient-to-r from-slate-900/95 via-indigo-950/40 to-slate-900/95 border-2 border-indigo-500/30 shadow-lg text-center shrink-0">
+              <div className="w-full my-1 sm:my-1.5 px-3.5 py-2.5 sm:py-3.5 rounded-2xl bg-[#152a1e]/95 border-2 border-[#2b543b] shadow-lg text-center shrink-0">
                 <h2 className="text-sm sm:text-base md:text-lg font-black text-white leading-snug break-words">
                   {currentQuestion.prompt}
                 </h2>
               </div>
             ) : (
-              <div className="w-full my-1 p-2 rounded-xl bg-slate-900/60 border border-slate-800 text-center text-xs text-slate-400 shrink-0">
+              <div className="w-full my-1 p-2 rounded-xl bg-[#152a1e]/70 border border-[#244230] text-center text-xs text-[#a3cbb1] shrink-0">
                 {t.lookAtHostForQuestion}
               </div>
             )}
@@ -475,16 +475,16 @@ export default function PlayPage({ params }: PlayPageProps) {
 
         {/* STEP 7: Leaderboard Intermission */}
         {playerView === 'leaderboard' && (
-          <div className="text-center space-y-4 max-w-sm w-full px-2">
+          <div className="text-center space-y-4 max-w-sm w-full px-2 my-auto">
             <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-amber-500/20 border border-amber-500/40 flex items-center justify-center mx-auto text-amber-300">
               <Trophy className="w-8 h-8 sm:w-10 sm:h-10 animate-bounce" />
             </div>
             <h2 className="text-2xl sm:text-3xl font-black text-white">{t.leaderboardTitle}</h2>
-            <p className="text-xs sm:text-sm text-slate-400">
+            <p className="text-xs sm:text-sm text-[#a3cbb1]">
               {t.watchHostLeaderboard}
             </p>
-            <div className="p-4 rounded-2xl bg-slate-900 border border-slate-800">
-              <span className="text-xs text-slate-400 block mb-1">{t.currentScore}</span>
+            <div className="p-4 rounded-2xl bg-[#152a1e]/90 border border-[#2b543b] shadow-xl">
+              <span className="text-xs text-[#a3cbb1] block mb-1">{t.currentScore}</span>
               <span className="font-mono font-black text-2xl sm:text-3xl text-yellow-300">
                 {player?.score.toLocaleString()}
               </span>
@@ -492,15 +492,15 @@ export default function PlayPage({ params }: PlayPageProps) {
           </div>
         )}
 
-        {/* STEP 8: Game Over Podium */}
+        {/* STEP 8: Game Over Podium - Vinh danh trên điện thoại người chơi */}
         {playerView === 'game_over' && (
-          <div className="text-center space-y-4 max-w-sm w-full px-2 animate-in zoom-in-95">
+          <div className="text-center space-y-4 max-w-sm w-full px-2 animate-in zoom-in-95 my-auto">
             <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-3xl bg-yellow-500/20 border border-yellow-500/40 flex items-center justify-center mx-auto text-yellow-300 shadow-2xl">
               <Award className="w-10 h-10 sm:w-12 sm:h-12" />
             </div>
             <h1 className="text-2xl sm:text-4xl font-black text-white">{t.gameOverTitle}</h1>
             {podiumRank ? (
-              <div className="p-4 sm:p-5 rounded-2xl bg-amber-500/20 border border-amber-500/40">
+              <div className="p-4 sm:p-5 rounded-2xl bg-[#1b3425] border border-amber-500/50 shadow-xl">
                 <span className="text-xs text-amber-300 font-bold uppercase tracking-wider block mb-1">
                   {t.congratsTop}
                 </span>
@@ -509,13 +509,13 @@ export default function PlayPage({ params }: PlayPageProps) {
                 </p>
               </div>
             ) : (
-              <p className="text-xs sm:text-sm text-slate-400">
+              <p className="text-xs sm:text-sm text-[#a3cbb1]">
                 {t.greatJobPodium}
               </p>
             )}
 
-            <div className="p-4 rounded-2xl bg-slate-900 border border-slate-800">
-              <span className="text-xs text-slate-400 block mb-1">{t.finalScoreLabel}</span>
+            <div className="p-4 rounded-2xl bg-[#152a1e]/90 border border-[#2b543b] shadow-xl">
+              <span className="text-xs text-[#a3cbb1] block mb-1">{t.finalScoreLabel}</span>
               <span className="font-mono font-black text-2xl sm:text-3xl text-yellow-300">
                 {player?.score.toLocaleString()}
               </span>

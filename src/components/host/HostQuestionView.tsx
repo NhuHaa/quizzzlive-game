@@ -68,14 +68,14 @@ export default function HostQuestionView({
   const displayFalse = lang === 'vi' ? 'Sai' : 'False';
 
   return (
-    <div className="w-full min-h-[calc(100dvh-4rem)] flex flex-col justify-between p-4 sm:p-6 lg:p-8 bg-slate-950 text-white relative">
+    <div className="w-full min-h-[calc(100dvh-4rem)] flex flex-col justify-between p-4 sm:p-6 lg:p-8 bg-gradient-to-b from-[#112017] via-[#1a3324] to-[#0d1811] text-[#f4f7f5] relative">
       {/* Top Header: Progress & Timer */}
       <div className="flex items-center justify-between gap-4 pb-3">
         {/* Question Counter Pill */}
-        <div className="px-4 sm:px-5 py-2 rounded-2xl bg-slate-900 border border-slate-800 text-slate-300 font-extrabold text-xs sm:text-base shadow-lg">
+        <div className="px-4 sm:px-5 py-2 rounded-2xl bg-[#152a1e] border border-[#2b543b] text-[#d4e7db] font-extrabold text-xs sm:text-base shadow-lg">
           <span>{t.questionWord} </span>
-          <span className="text-indigo-400 font-mono text-base sm:text-lg">{questionIndex + 1}</span>
-          <span className="text-slate-500"> / {totalQuestions}</span>
+          <span className="text-emerald-400 font-mono text-base sm:text-lg">{questionIndex + 1}</span>
+          <span className="text-[#a3cbb1]"> / {totalQuestions}</span>
         </div>
 
         {/* Circular Countdown Timer */}
@@ -92,7 +92,7 @@ export default function HostQuestionView({
               cy="50%"
               r="40%"
               className={`stroke-[7px] sm:stroke-[8px] fill-transparent transition-all duration-1000 stroke-linecap-round ${
-                timeLeft <= 5 ? 'stroke-rose-500' : 'stroke-indigo-500'
+                timeLeft <= 5 ? 'stroke-rose-500' : 'stroke-emerald-500'
               }`}
               style={{
                 strokeDasharray: 251.2,
@@ -111,11 +111,11 @@ export default function HostQuestionView({
 
         {/* Answer Counter & Skip button */}
         <div className="flex items-center gap-2 sm:gap-3">
-          <div className="px-4 sm:px-5 py-2 rounded-2xl bg-slate-900 border border-slate-800 text-slate-300 font-extrabold text-xs sm:text-base flex items-center gap-2 shadow-lg">
-            <Users className="w-4 h-4 text-purple-400" />
+          <div className="px-4 sm:px-5 py-2 rounded-2xl bg-[#152a1e] border border-[#2b543b] text-[#d4e7db] font-extrabold text-xs sm:text-base flex items-center gap-2 shadow-lg">
+            <Users className="w-4 h-4 text-emerald-400" />
             <span>
-              <span className="text-purple-400 font-mono text-base sm:text-lg">{answeredCount}</span>
-              <span className="text-slate-500"> / {totalPlayers} {t.answersWord}</span>
+              <span className="text-emerald-400 font-mono text-base sm:text-lg">{answeredCount}</span>
+              <span className="text-[#a3cbb1]"> / {totalPlayers} {t.answersWord}</span>
             </span>
           </div>
 
@@ -124,7 +124,7 @@ export default function HostQuestionView({
               playTimesUp();
               onTimeUp();
             }}
-            className="px-3 sm:px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 hover:text-white text-xs sm:text-sm font-semibold flex items-center gap-1.5 transition cursor-pointer"
+            className="px-3 sm:px-4 py-2 rounded-xl bg-[#0c1811] hover:bg-[#1c3626] border border-[#2b543b] text-[#d4e7db] hover:text-white text-xs sm:text-sm font-semibold flex items-center gap-1.5 transition cursor-pointer"
             title="Kết thúc thời gian làm bài ngay"
           >
             <span className="hidden sm:inline">{t.skipNowBtn}</span>
@@ -135,7 +135,7 @@ export default function HostQuestionView({
 
       {/* Center: Question Prompt + Media Image (if any) */}
       <div className="my-auto py-3 sm:py-6 max-w-5xl mx-auto w-full text-center">
-        <div className="inline-block px-3.5 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 text-[11px] uppercase font-bold tracking-widest mb-3">
+        <div className="inline-block px-3.5 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 text-[11px] uppercase font-bold tracking-widest mb-3">
           {question.type === 'multiple_choice'
             ? 'Trắc Nghiệm 4 Đáp Án'
             : question.type === 'true_false'

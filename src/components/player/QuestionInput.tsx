@@ -170,8 +170,8 @@ export default function QuestionInput({
   return (
     <div className="w-full max-w-xl mx-auto p-4 sm:p-6 flex flex-col justify-center">
       <form onSubmit={handleSubmitBlank} className="space-y-4">
-        <div className="bg-slate-900/90 border-2 border-indigo-500/50 rounded-2xl p-4 shadow-2xl backdrop-blur-md">
-          <label className="block text-xs font-semibold uppercase tracking-wider text-indigo-300 mb-2">
+        <div className="bg-[#152a1e]/95 border-2 border-[#2b543b] rounded-2xl p-4 shadow-2xl backdrop-blur-md">
+          <label className="block text-xs font-semibold uppercase tracking-wider text-emerald-300 mb-2">
             {lang === 'vi' ? 'Nhập câu trả lời của bạn:' : 'Enter your answer:'}
           </label>
           <input
@@ -181,7 +181,7 @@ export default function QuestionInput({
             value={blankInput}
             onChange={(e) => setBlankInput(e.target.value)}
             placeholder={lang === 'vi' ? 'Gõ từ khóa vào đây...' : 'Type answer here...'}
-            className="w-full text-xl sm:text-2xl font-bold text-white bg-transparent border-none outline-none focus:ring-0 placeholder:text-slate-500"
+            className="w-full text-xl sm:text-2xl font-bold text-white bg-transparent border-none outline-none focus:ring-0 placeholder:text-[#3e855a]"
             autoComplete="off"
             autoCorrect="off"
             spellCheck="false"
@@ -191,7 +191,7 @@ export default function QuestionInput({
         <button
           type="submit"
           disabled={disabled || !blankInput.trim()}
-          className="w-full py-4 sm:py-5 px-6 rounded-2xl bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 hover:from-indigo-500 hover:to-pink-500 active:scale-98 text-white font-extrabold text-lg sm:text-xl shadow-xl shadow-purple-900/40 flex items-center justify-center gap-3 transition disabled:opacity-50 cursor-pointer"
+          className="w-full py-4 sm:py-5 px-6 rounded-2xl bg-gradient-to-r from-emerald-600 via-teal-600 to-green-600 hover:from-emerald-500 hover:to-green-500 active:scale-98 text-white font-extrabold text-lg sm:text-xl shadow-xl shadow-emerald-950/50 flex items-center justify-center gap-3 transition disabled:opacity-50 cursor-pointer"
         >
           <span>{lang === 'vi' ? 'Gửi câu trả lời' : 'Submit Answer'}</span>
           <Send className="w-5 h-5" />
