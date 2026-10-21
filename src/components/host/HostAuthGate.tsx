@@ -52,22 +52,26 @@ export default function HostAuthGate({ children }: HostAuthGateProps) {
   }
 
   return (
-    <div className="min-h-[100dvh] w-full flex flex-col items-center justify-center p-4 bg-slate-950 text-slate-100 overflow-hidden relative">
+    <div className="relative min-h-[100dvh] w-full flex flex-col items-center justify-center p-4 bg-gradient-to-b from-[#112017] via-[#1A3324] to-[#0D1811] text-[#FAF8F5] overflow-hidden">
+      {/* Paper Grain Texture Overlay */}
+      <div className="grain-texture fixed inset-0 pointer-events-none z-30 opacity-35 mix-blend-overlay" />
+
       {/* Top right language switch */}
-      <div className="absolute top-4 right-4 z-20">
+      <div className="absolute top-4 right-4 z-40">
         <LanguageToggle />
       </div>
 
-      {/* Background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl pointer-events-none" />
+      {/* Atmospheric Ambient Glows */}
+      <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#B84E2E]/15 rounded-full blur-3xl z-0" />
+      <div className="pointer-events-none absolute top-1/3 left-1/3 w-80 h-80 bg-[#1E4D32]/30 rounded-full blur-3xl z-0" />
 
-      <div className="w-full max-w-md p-6 sm:p-8 rounded-3xl bg-slate-900/90 border border-slate-800 shadow-2xl backdrop-blur-xl relative z-10 animate-in zoom-in-95">
+      <div className="w-full max-w-md p-6 sm:p-8 rounded-3xl bg-[#14261C]/95 border border-[#2B4B36] shadow-2xl backdrop-blur-xl relative z-10 animate-in zoom-in-95">
         <div className="text-center space-y-3 mb-6">
-          <div className="w-16 h-16 rounded-2xl bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 flex items-center justify-center mx-auto shadow-inner">
+          <div className="w-16 h-16 rounded-2xl bg-[#1B3526] border border-[#2D543D] text-[#D4704E] flex items-center justify-center mx-auto shadow-inner">
             <Lock className="w-8 h-8" />
           </div>
-          <h1 className="text-2xl font-black text-white">{t.adminArea}</h1>
-          <p className="text-xs text-slate-400">
+          <h1 className="text-2xl font-black text-[#FAF8F5] tracking-tight">{t.adminArea}</h1>
+          <p className="text-xs sm:text-sm text-[#A9BAAE]">
             {t.passwordPrompt}
           </p>
         </div>
@@ -84,9 +88,9 @@ export default function HostAuthGate({ children }: HostAuthGateProps) {
                 setError(null);
               }}
               placeholder={t.passwordPlaceholder}
-              className="w-full text-center text-2xl font-mono font-bold tracking-widest py-3.5 px-4 rounded-2xl bg-slate-950 border-2 border-slate-700 focus:border-indigo-500 text-white placeholder:text-slate-600 outline-none transition"
+              className="w-full text-center text-2xl font-mono font-bold tracking-widest py-3.5 px-4 rounded-2xl bg-[#0D1811] border-2 border-[#2B4B36] focus:border-[#B84E2E] text-white placeholder:text-[#688573] outline-none transition"
             />
-            <div className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none">
+            <div className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[#7F9E8B] pointer-events-none">
               <KeyRound className="w-5 h-5" />
             </div>
           </div>
@@ -100,16 +104,16 @@ export default function HostAuthGate({ children }: HostAuthGateProps) {
           <button
             type="submit"
             disabled={!password.trim()}
-            className="w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 active:scale-98 text-white font-bold text-base shadow-lg shadow-indigo-600/30 flex items-center justify-center gap-2 disabled:opacity-50 transition cursor-pointer"
+            className="w-full py-3.5 px-6 rounded-2xl bg-[#B84E2E] hover:bg-[#A34326] border border-[#CF603F] active:scale-98 text-white font-bold text-base shadow-lg shadow-[#B84E2E]/30 flex items-center justify-center gap-2 disabled:opacity-50 transition cursor-pointer"
           >
             <span>{t.unlock}</span>
             <ArrowRight className="w-5 h-5" />
           </button>
         </form>
 
-        <div className="mt-6 pt-4 border-t border-slate-800 text-center">
-          <span className="text-[11px] text-slate-500 inline-flex items-center gap-1">
-            <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" />
+        <div className="mt-6 pt-4 border-t border-[#2B4B36]/80 text-center">
+          <span className="text-[11px] text-[#A9BAAE] inline-flex items-center gap-1.5 font-medium">
+            <ShieldCheck className="w-3.5 h-3.5 text-[#7BD49F]" />
             {t.securedSession}
           </span>
         </div>

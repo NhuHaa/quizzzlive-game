@@ -111,22 +111,22 @@ export default function ImportQuestionsModal({ isOpen, onClose, quizId, onSucces
   const invalidCount = parsedRows.length - validCount;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in">
-      <div className="bg-slate-900 border border-slate-700 w-full max-w-4xl rounded-2xl shadow-2xl flex flex-col max-h-[90vh] overflow-hidden text-slate-100">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-md animate-in fade-in">
+      <div className="bg-[#14261C] border border-[#2B4B36] w-full max-w-4xl rounded-2xl shadow-2xl flex flex-col max-h-[90vh] overflow-hidden text-[#FAF8F5]">
         {/* Modal Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-800 bg-slate-900/80">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-[#2B4B36] bg-[#112017]/90">
           <div className="flex items-center gap-3">
-            <div className="p-2.5 rounded-xl bg-indigo-500/20 text-indigo-400 border border-indigo-500/30">
+            <div className="p-2.5 rounded-xl bg-[#1B3526] text-[#7BD49F] border border-[#2D543D]">
               <FileSpreadsheet className="w-6 h-6" />
             </div>
             <div>
-              <h2 className="text-xl font-bold">{t.importModalTitle}</h2>
-              <p className="text-xs text-slate-400">{t.importModalDesc}</p>
+              <h2 className="text-xl font-bold text-[#FAF8F5]">{t.importModalTitle}</h2>
+              <p className="text-xs text-[#A9BAAE]">{t.importModalDesc}</p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-2 text-slate-400 hover:text-white rounded-lg hover:bg-slate-800 transition cursor-pointer"
+            className="p-2 text-[#A9BAAE] hover:text-white rounded-lg hover:bg-[#1E3A2B] transition cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
@@ -136,8 +136,8 @@ export default function ImportQuestionsModal({ isOpen, onClose, quizId, onSucces
         <div className="p-6 overflow-y-auto space-y-6 flex-1">
           {/* Quiz Title field if creating new quiz */}
           {!quizId && (
-            <div className="space-y-1.5 p-4 rounded-xl bg-slate-800/40 border border-slate-700/60">
-              <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider">
+            <div className="space-y-1.5 p-4 rounded-xl bg-[#0D1811]/60 border border-[#2B4B36]">
+              <label className="block text-xs font-bold text-[#D4704E] uppercase tracking-wider">
                 {t.quizNamePrompt}
               </label>
               <input
@@ -145,7 +145,7 @@ export default function ImportQuestionsModal({ isOpen, onClose, quizId, onSucces
                 value={quizTitle}
                 onChange={(e) => setQuizTitle(e.target.value)}
                 placeholder={lang === 'vi' ? 'Nhập tên bộ đề (VD: Đố vui công nghệ 2026...)' : 'Enter quiz title (e.g. 2026 Tech Trivia...)'}
-                className="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 focus:border-indigo-500 focus:outline-none text-white text-sm"
+                className="w-full px-4 py-2.5 rounded-xl bg-[#0D1811] border border-[#2B4B36] focus:border-[#B84E2E] focus:outline-none text-[#FAF8F5] text-sm"
               />
             </div>
           )}
@@ -315,11 +315,11 @@ export default function ImportQuestionsModal({ isOpen, onClose, quizId, onSucces
         </div>
 
         {/* Modal Footer */}
-        <div className="flex items-center justify-between px-6 py-4 border-t border-slate-800 bg-slate-900/80">
+        <div className="flex items-center justify-between px-6 py-4 border-t border-[#2B4B36] bg-[#112017]/90">
           <button
             type="button"
             onClick={onClose}
-            className="px-4 py-2 text-sm text-slate-400 hover:text-white rounded-xl hover:bg-slate-800 transition cursor-pointer"
+            className="px-4 py-2 text-sm text-[#A9BAAE] hover:text-white rounded-xl hover:bg-[#1E3A2B] transition cursor-pointer"
           >
             {t.cancelBtn}
           </button>
@@ -328,7 +328,7 @@ export default function ImportQuestionsModal({ isOpen, onClose, quizId, onSucces
             type="button"
             disabled={validCount === 0 || saving}
             onClick={handleSave}
-            className="inline-flex items-center gap-2 px-6 py-2.5 text-sm font-semibold rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white shadow-lg shadow-indigo-600/30 disabled:opacity-50 disabled:cursor-not-allowed transition cursor-pointer"
+            className="inline-flex items-center gap-2 px-6 py-2.5 text-sm font-bold rounded-xl bg-[#B84E2E] hover:bg-[#A34326] border border-[#CF603F] text-white shadow-lg shadow-[#B84E2E]/25 disabled:opacity-50 disabled:cursor-not-allowed transition cursor-pointer"
           >
             {saving ? (
               <>

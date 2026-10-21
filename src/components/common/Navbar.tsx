@@ -14,6 +14,7 @@ interface NavbarProps {
   showLockButton?: boolean;
   onLock?: () => void;
   className?: string;
+  containerMaxWidth?: string;
 }
 
 export default function Navbar({
@@ -21,37 +22,38 @@ export default function Navbar({
   showAudioControl = true,
   showLockButton = false,
   onLock,
-  className = 'border-slate-800/80 bg-slate-950/90'
+  className = 'border-[#233C2D]/80 bg-[#0E1A13]/90',
+  containerMaxWidth = 'max-w-7xl'
 }: NavbarProps) {
   const { t } = useLanguage();
 
   return (
-    <header className={`w-full border-b backdrop-blur-md sticky top-0 z-40 max-w-full transition-colors ${className}`}>
-      <div className="max-w-5xl mx-auto px-6 sm:px-10 lg:px-12 h-16 sm:h-20 flex items-center justify-between gap-4">
-        {/* Logo: Chú vịt vàng đang suy nghĩ */}
+    <header className={`w-full border-b backdrop-blur-md sticky top-0 z-40 transition-colors ${className}`}>
+      <div className={`${containerMaxWidth} mx-auto px-4 sm:px-8 h-16 sm:h-20 flex items-center justify-between gap-4`}>
+        {/* Logo: Chú vịt vàng đang suy nghĩ - Canh thẳng lề trái */}
         <Link href="/" className="flex items-center gap-3 group shrink-0">
           <ThinkingDuckLogo size="md" />
           <div className="flex items-center">
             <span className="text-xl sm:text-2xl font-black tracking-tight bg-gradient-to-r from-white via-[#EAD1C5] to-[#D4704E] bg-clip-text text-transparent">
               {t.gameTitle}
             </span>
-            <span className="hidden md:inline text-[10px] uppercase font-bold tracking-widest px-2 py-0.5 ml-2 rounded-md bg-[#234230] text-[#a3cbb1] border border-[#345e46]">
+            <span className="hidden md:inline text-[10px] uppercase font-bold tracking-widest px-2.5 py-1 ml-2.5 rounded-lg bg-[#1B3526] text-[#A6D1B5] border border-[#2D543D]">
               {t.serverless}
             </span>
           </div>
         </Link>
 
-        {/* Navigation & Controls: Cách đều mép ngoài thoải mái */}
-        <div className="flex items-center gap-3 sm:gap-4 shrink-0">
+        {/* Navigation & Controls: Căn thẳng lề phải, chiều cao h-10 đồng bộ */}
+        <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
           <LanguageToggle />
 
           {showHostLink && (
             <Link
               href="/host/dashboard"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs sm:text-sm font-semibold rounded-xl bg-indigo-600/20 text-indigo-300 hover:text-white border border-indigo-500/30 hover:bg-indigo-600/30 transition shadow-sm"
+              className="h-10 inline-flex items-center gap-2 px-3.5 sm:px-4 text-xs sm:text-sm font-bold rounded-xl bg-[#182F22] text-[#E5F2EA] hover:text-white border border-[#2B4E38] hover:bg-[#203D2D] transition shadow-sm whitespace-nowrap"
             >
-              <LayoutDashboard className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">{t.hostDashboard}</span>
+              <LayoutDashboard className="w-4 h-4 text-[#D4704E] shrink-0" />
+              <span>{t.hostDashboard}</span>
             </Link>
           )}
 
@@ -59,10 +61,10 @@ export default function Navbar({
             <button
               type="button"
               onClick={onLock}
-              className="inline-flex items-center gap-1 px-3 py-1.5 text-xs sm:text-sm font-semibold rounded-xl bg-rose-500/10 text-rose-300 hover:text-rose-200 border border-rose-500/30 hover:bg-rose-500/20 transition cursor-pointer"
+              className="h-10 inline-flex items-center gap-1.5 px-3.5 sm:px-4 text-xs sm:text-sm font-bold rounded-xl bg-[#2D1B18] text-[#F3C4BC] hover:text-white border border-[#52322B] hover:bg-[#3B221E] transition cursor-pointer whitespace-nowrap shadow-sm"
               title={t.lock}
             >
-              <Lock className="w-3.5 h-3.5" />
+              <Lock className="w-4 h-4 text-[#D4704E] shrink-0" />
               <span>{t.lock}</span>
             </button>
           )}

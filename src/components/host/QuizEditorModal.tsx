@@ -219,26 +219,26 @@ export default function QuizEditorModal({ isOpen, onClose, onSuccess, quizToEdit
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/75 backdrop-blur-sm animate-in fade-in">
-      <div className="bg-slate-900 border border-slate-700 w-full max-w-4xl rounded-3xl shadow-2xl flex flex-col max-h-[92vh] overflow-hidden text-slate-100">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/75 backdrop-blur-md animate-in fade-in">
+      <div className="bg-[#14261C] border border-[#2B4B36] w-full max-w-4xl rounded-3xl shadow-2xl flex flex-col max-h-[92vh] overflow-hidden text-[#FAF8F5]">
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 sm:py-5 border-b border-slate-800 bg-slate-900/90">
+        <div className="flex items-center justify-between px-6 py-4 sm:py-5 border-b border-[#2B4B36] bg-[#112017]/95">
           <div className="flex items-center gap-3">
-            <div className="p-2.5 rounded-xl bg-purple-500/20 text-purple-400 border border-purple-500/30">
+            <div className="p-2.5 rounded-xl bg-[#1B3526] text-[#D4704E] border border-[#2D543D]">
               <HelpCircle className="w-6 h-6" />
             </div>
             <div>
-              <h2 className="text-xl font-bold text-white">
+              <h2 className="text-xl font-bold text-[#FAF8F5]">
                 {isEditMode ? t.editQuizTitle : t.createQuizTitle}
               </h2>
-              <p className="text-xs text-slate-400">
+              <p className="text-xs text-[#A9BAAE]">
                 {lang === 'vi' ? 'Thiết lập câu hỏi, tải ảnh minh họa và đáp án chuẩn' : 'Configure questions, upload images and set correct answers'}
               </p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-2 text-slate-400 hover:text-white rounded-lg hover:bg-slate-800 transition cursor-pointer"
+            className="p-2 text-[#A9BAAE] hover:text-white rounded-lg hover:bg-[#1E3A2B] transition cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
@@ -563,11 +563,11 @@ export default function QuizEditorModal({ isOpen, onClose, onSuccess, quizToEdit
         </div>
 
         {/* Footer */}
-        <div className="flex items-center justify-between px-6 py-4 border-t border-slate-800 bg-slate-900/90">
+        <div className="flex items-center justify-between px-6 py-4 border-t border-[#2B4B36] bg-[#112017]/95">
           <button
             type="button"
             onClick={onClose}
-            className="px-4 py-2 text-sm text-slate-400 hover:text-white rounded-xl hover:bg-slate-800 transition cursor-pointer"
+            className="px-4 py-2 text-sm text-[#A9BAAE] hover:text-white rounded-xl hover:bg-[#1E3A2B] transition cursor-pointer"
           >
             {t.cancelBtn}
           </button>
@@ -576,7 +576,7 @@ export default function QuizEditorModal({ isOpen, onClose, onSuccess, quizToEdit
             type="button"
             disabled={saving}
             onClick={handleSaveQuiz}
-            className="inline-flex items-center gap-2 px-6 py-2.5 text-sm font-bold rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white shadow-lg shadow-purple-600/30 disabled:opacity-50 transition cursor-pointer"
+            className="inline-flex items-center gap-2 px-6 py-2.5 text-sm font-bold rounded-xl bg-[#B84E2E] hover:bg-[#A34326] border border-[#CF603F] text-white shadow-lg shadow-[#B84E2E]/25 disabled:opacity-50 transition cursor-pointer"
           >
             {saving ? (
               <>
