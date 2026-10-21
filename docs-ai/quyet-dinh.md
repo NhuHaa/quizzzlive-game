@@ -61,3 +61,17 @@ Tài liệu này ghi lại các lựa chọn kiến trúc quan trọng đã th�
   - Rút ngắn độ dài nút Toolbar, canh trái icon, thu gọn kích thước đều nhau bằng nút Host Quản Lý và neo sát lề phải `ml-auto`.
   - Áp dụng `style={{ paddingLeft: '56px' }}` cho ô input tìm kiếm để cố định khoảng cách an toàn, chống triệt để lỗi chữ đè lên kính lúp.
 * **Lý do:** Khắc phục triệt để hiện tượng vỡ nút, dãn nút tràn thanh điều hướng hoặc bị ẩn nút Khóa khi xem ở tỷ lệ 100%, đem lại bố cục cân xứng, tinh tế và chuyên nghiệp.
+
+### 14. Mascot Vịt Vàng Giơ Ngón Tay (Thumbs-Up 👍) Cho Màn Hình Đã Nộp Bài
+* **Quyết định:** Tạo mới component [ThumbsUpDuck.tsx](file:///Users/linhduong/.gemini/antigravity-ide/scratch/kahoot-rep/quizzz-live-project/src/components/common/ThumbsUpDuck.tsx) thay thế icon dấu tick xanh (`CheckCircle2`) ở màn hình người chơi [PlayerAnsweredView.tsx](file:///Users/linhduong/.gemini/antigravity-ide/scratch/kahoot-rep/quizzz-live-project/src/components/player/PlayerAnsweredView.tsx).
+* **Lý do:** Tránh hiểu lầm nghiêm trọng khi người chơi vừa bấm chọn đáp án thì thấy icon check xanh lá tưởng là mình đã trả lời đúng. Chú vịt vàng nháy mắt cười tươi giơ ngón tay cái 👍 biểu thị trạng thái nộp bài thành công và đang chờ các bạn cùng chơi hoàn thành.
+
+### 15. Đại Tu Toàn Bộ Giao Diện Còn Màu Tím Sang Màu Xanh Rêu Rừng Rậm Chủ Đạo
+* **Quyết định:**
+  - **Phòng chờ (Lobby):** Cả Host ([LobbyView.tsx](file:///Users/linhduong/.gemini/antigravity-ide/scratch/kahoot-rep/quizzz-live-project/src/components/host/LobbyView.tsx)) và Player ([PlayerLobby.tsx](file:///Users/linhduong/.gemini/antigravity-ide/scratch/kahoot-rep/quizzz-live-project/src/components/player/PlayerLobby.tsx)) chuyển toàn bộ thẻ PIN, card danh sách người chơi, quầng sáng nền, nút xáo trộn câu hỏi/đáp án từ tím sang xanh rêu (`#112017`, `#152a1e`, `#2b543b`) kết hợp điểm nhấn cam đất nung `#B84E2E`.
+  - **Khởi động trò chơi:** Màn hình đếm ngược "Sẵn Sàng!" (`get_ready`) phía người chơi chuyển từ tím sang xanh emerald rực rỡ.
+  - **Giao diện Người chơi (`/play/[pin]`):** Khung nhập nickname, modal thư viện linh vật ([AvatarPickerModal.tsx](file:///Users/linhduong/.gemini/antigravity-ide/scratch/kahoot-rep/quizzz-live-project/src/components/player/AvatarPickerModal.tsx)), khung câu hỏi và nút gửi ([QuestionInput.tsx](file:///Users/linhduong/.gemini/antigravity-ide/scratch/kahoot-rep/quizzz-live-project/src/components/player/QuestionInput.tsx)) chuyển 100% sang tông xanh lá đồng bộ.
+  - **Vinh danh Podium & Bảng điểm:** [HostPodiumView.tsx](file:///Users/linhduong/.gemini/antigravity-ide/scratch/kahoot-rep/quizzz-live-project/src/components/host/HostPodiumView.tsx) và [HostLeaderboardView.tsx](file:///Users/linhduong/.gemini/antigravity-ide/scratch/kahoot-rep/quizzz-live-project/src/components/host/HostLeaderboardView.tsx) chuyển nền và nút "Chơi Lại" từ tím sang xanh lá đồng bộ.
+  - **Mặc định Theme Host:** Cập nhật `bgPreset` mặc định trong [ThemeCustomizerModal.tsx](file:///Users/linhduong/.gemini/antigravity-ide/scratch/kahoot-rep/quizzz-live-project/src/components/host/ThemeCustomizerModal.tsx) thành `forest-moss` (Xanh Rêu Rừng Rậm).
+* **Lý do:** Đáp ứng chuẩn xác phản hồi của người dùng, loại bỏ triệt để màu tím còn sót lại từ giao diện nguyên bản cũ, hoàn thiện 100% nhận diện thương hiệu Poster Nghệ Thuật Behance đồng nhất trên mọi màn hình.
+

@@ -178,4 +178,6 @@ flowchart TD
 | Tách mã nguồn độc lập & Đẩy lên GitHub | ✅ Hoàn thành | Kho chính chủ: https://github.com/NhuHaa/quizzzlive-game |
 | Triển khai Deploy lên Vercel | ✅ Hoàn thành | Web chính thức: https://quizzzlive-game-35dn.vercel.app |
 | Tinh chỉnh Giao diện Quản Trị & Header | ✅ Hoàn thành | Nút xanh lá đồng bộ, căn lề chuẩn, sửa kính lúp tìm kiếm |
+| Mascot Vịt vàng Thumbs-Up 👍 nộp bài | ✅ Hoàn thành | Thay thế icon check xanh tránh hiểu lầm đáp án đúng |
+| Đồng bộ Xanh Rêu toàn diện (Lobby, Player, Podium) | ✅ Hoàn thành | Xóa bỏ triệt để màu tím, chuẩn nhận diện Behance |
 | Sẵn sàng cho trận đấu thực tế | 🚀 Sẵn sàng | Mở Host trên máy tính/TV và quét QR qua điện thoại 4G/Wifi |

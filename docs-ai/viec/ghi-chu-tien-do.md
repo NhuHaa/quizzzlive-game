@@ -54,6 +54,16 @@
   - Không còn bị kéo dãn dài sang mép phải, kích thước vừa vặn `w-auto shrink-0 px-4 h-11`, màu xanh lá hài hòa.
 - [x] **Đồng bộ màn hình khóa PIN & các hộp thoại:**
   - Màn hình nhập PIN `8451` và các bảng tạo/nhập câu hỏi chuyển hoàn toàn sang theme Behance xanh rêu rừng rậm, bỏ hết màu xanh đen/tím cũ.
+- [x] **Cập nhật Mascot Vịt Vàng Giơ Ngón Tay (Thumbs-up 👍):**
+  - Tạo mới component `ThumbsUpDuck.tsx` chuẩn SVG vector linh vật QuizLive: lông vàng gradient, má hồng, nháy mắt cười tươi giơ ngón tay cái 👍 kèm tia lấp lánh thành công.
+  - Thay thế icon dấu check tròn xanh trong `PlayerAnsweredView.tsx` để xóa bỏ hoàn toàn hiểu lầm với icon đáp án đúng.
+- [x] **Đại tu toàn bộ giao diện còn màu tím sang Màu Xanh Chủ Đạo:**
+  - **Phòng chờ Host (`LobbyView.tsx`):** Thẻ PIN, card danh sách người chơi, nút copy, quầng sáng nền, nút xáo câu/đáp án chuyển sang xanh rêu `#112017`, `#152a1e`, viền `#2b543b`.
+  - **Phòng chờ Player (`PlayerLobby.tsx`):** Nền xanh rêu, vòng avatar ngọc bích, badge vào phòng xanh emerald.
+  - **Khởi động trận đấu:** Màn hình đếm ngược "Sẵn Sàng!" chuyển từ tím sang xanh emerald rực rỡ.
+  - **Giao diện Người chơi (`/play/[pin]`):** Màn hình chọn nickname/avatar, modal thư viện linh vật, khung câu hỏi, nút gửi đều chuyển sang xanh lá đồng bộ.
+  - **Vinh danh Podium & Bảng điểm:** Nền và nút Chơi Lại của `HostPodiumView.tsx` và `HostLeaderboardView.tsx` chuyển sang màu xanh chủ đạo.
+  - **Preset Host Game:** Thiết lập `forest-moss` làm theme mặc định của mọi phiên tạo phòng.
 
 ---
 
@@ -61,3 +71,4 @@
 1. **Thi đấu thực tế:** Chiếu máy tính/TV màn hình Host `/host/dashboard` $\rightarrow$ Phát trực tiếp $\rightarrow$ Cho bạn bè dùng điện thoại (Wifi hoặc 4G) quét mã QR vào tranh tài.
 2. **Thêm đề thi mới:** Nhập câu hỏi từ file Excel (.xlsx / .csv) bằng nút "Nhập Excel / CSV Tạo Đề".
 3. **Thêm tính năng phụ (tùy chọn):** Bổ sung thêm nhiều linh vật Avatar hoạt hình, chế độ đồng đội (Team Mode).
+
